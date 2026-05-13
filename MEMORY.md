@@ -271,16 +271,17 @@ url, caption{...langs}, type (food/interior/events), is_active
 ## What Works ✅
 - All 24 backend tests pass (run inside container: `docker compose -f docker-compose.prod.yml exec backend npm test -- --forceExit`)
 - HTTPS at https://khamancha.duckdns.org with Let's Encrypt cert (expires 2026-08-11, auto-renews)
-- HTTP → HTTPS redirect (301)
-- HSTS header enabled
-- All 12 frontend pages return 200
-- Default locale redirect: `/` → `/hy` (Armenian)
-- Menu API returns 10 items in 10 languages
-- Reservation booking with confirmation code
-- Availability check (409 on duplicate slot)
-- Admin login returns JWT
+- HTTP → HTTPS redirect (301 permanent)
+- HSTS header enabled (`max-age=31536000; includeSubDomains`)
+- All 9+ frontend pages return 200 (`/hy`, `/en`, `/en/menu`, `/en/booking`, `/en/about`, `/en/gallery`, `/en/events`, `/en/reviews`, `/en/delivery`, `/en/admin`, `/en/admin/login`)
+- Default locale redirect: `/` → `/hy` (Armenian, 307)
+- Menu API: `GET /api/menu` returns 10 items with localized name/description per `?lang=` param
+- Reservation booking: `POST /api/reservations` returns confirmation code
+- Availability check: `GET /api/reservations/check` returns `{available: bool}`
+- Admin login: `POST /api/admin/login` returns JWT accessToken
 - Seed data: 10 menu items, 5 reviews, 3 events, 3 halls, 1 admin user
-- All 5 other Apache vhosts on server untouched and healthy
+- All 3 other Apache vhosts on server untouched and healthy (araratatelier, armcrypto, armenianlibery)
+- GitHub: https://github.com/Samvel10/Kamancha (5 commits on `main`)
 
 ## Known Limitations / Not Yet Done ⚠️
 - Email sending uses placeholder SMTP credentials (Nodemailer configured but not sending real emails)
