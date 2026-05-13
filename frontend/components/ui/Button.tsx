@@ -2,19 +2,20 @@ import { cn } from '@/lib/utils';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'accent' | 'outline' | 'ghost';
+  variant?: 'primary' | 'accent' | 'outline' | 'ghost' | 'gold';
   size?: 'sm' | 'md' | 'lg';
   loading?: boolean;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', loading, children, disabled, ...props }, ref) => {
-    const base = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
+    const base = 'inline-flex items-center justify-center font-semibold rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
     const variants = {
-      primary: 'bg-primary text-bg hover:bg-primary-light',
-      accent: 'bg-accent text-white hover:bg-accent-light',
-      outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-bg',
-      ghost: 'text-primary hover:bg-bg-dark',
+      primary: 'bg-primary text-accent hover:bg-primary-deeper',
+      accent:  'bg-accent text-primary hover:bg-accent-dark',
+      gold:    'bg-accent text-primary hover:bg-accent-dark',
+      outline: 'border-2 border-accent text-accent hover:bg-accent hover:text-primary',
+      ghost:   'text-primary hover:bg-bg-dark',
     };
     const sizes = {
       sm: 'px-3 py-1.5 text-sm',

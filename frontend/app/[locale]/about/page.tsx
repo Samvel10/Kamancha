@@ -26,11 +26,13 @@ export default function AboutPage() {
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="font-display text-4xl md:text-5xl font-bold text-white mb-3"
+          className="font-display text-4xl md:text-5xl font-bold mb-3"
+          style={{ color: '#F5ECD7' }}
         >
           {t('title')}
         </motion.h1>
-        <p className="text-accent text-lg">{t('subtitle')}</p>
+        <hr className="section-divider" />
+        <p className="text-text-muted-green text-base">{t('subtitle')}</p>
       </div>
 
       <section className="py-16 bg-white">
@@ -89,8 +91,9 @@ export default function AboutPage() {
 
       <section className="py-16 bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-3xl font-bold text-white text-center mb-10">{t('values.title')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="font-display text-3xl font-bold text-accent text-center mb-3">{t('values.title')}</h2>
+          <hr className="section-divider" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             {values.map(({ Icon, title, desc }, i) => (
               <motion.div
                 key={i}
@@ -98,11 +101,11 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white/10 rounded-xl p-6 text-center"
+                className="bg-primary-deeper rounded-lg p-6 text-center border border-green-border"
               >
-                <Icon size={32} className="text-accent mx-auto mb-3" />
+                <Icon size={28} className="text-accent mx-auto mb-3" />
                 <h3 className="text-accent font-bold mb-2">{title}</h3>
-                <p className="text-white/70 text-sm">{desc}</p>
+                <p className="text-text-muted-green text-sm">{desc}</p>
               </motion.div>
             ))}
           </div>

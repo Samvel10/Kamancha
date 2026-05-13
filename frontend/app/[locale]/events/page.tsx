@@ -16,13 +16,6 @@ interface Event {
   type: 'music' | 'special' | 'holiday' | 'other';
 }
 
-const TYPE_COLORS: Record<string, string> = {
-  music: 'bg-accent/10 text-accent',
-  special: 'bg-secondary/10 text-secondary',
-  holiday: 'bg-primary/10 text-primary',
-  other: 'bg-gray-100 text-gray-600',
-};
-
 export default function EventsPage() {
   const t = useTranslations('events');
   const locale = useLocale();
@@ -39,36 +32,58 @@ export default function EventsPage() {
   return (
     <div className="pt-16 min-h-screen bg-bg">
       <div className="bg-primary py-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-bg mb-3">{t('title')}</h1>
-        <p className="text-accent text-lg">{t('subtitle')}</p>
+        <h1 className="font-display text-4xl md:text-5xl font-bold mb-3" style={{ color: '#F5ECD7' }}>
+          {t('title')}
+        </h1>
+        <hr className="section-divider" />
+        <p className="text-text-muted-green text-base">{t('subtitle')}</p>
       </div>
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-2xl font-bold text-primary mb-8">{t('upcoming')}</h2>
+        <h2 className="font-display text-2xl font-bold text-primary mb-8">{t('upcoming')}</h2>
+
         {loading ? (
           <div className="space-y-4">
-            {[1,2,3].map(i => <div key={i} className="card p-6 animate-pulse"><div className="h-5 bg-bg-dark rounded w-1/2 mb-3"/><div className="h-3 bg-bg-dark rounded w-full"/></div>)}
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-white rounded-lg border border-border p-6 animate-pulse">
+                <div className="h-5 bg-bg-dark rounded w-1/2 mb-3" />
+                <div className="h-3 bg-bg-dark rounded w-full" />
+              </div>
+            ))}
           </div>
         ) : events.length === 0 ? (
-          <div className="text-center py-20 text-text-main/50"><Music size={48} className="mx-auto mb-4 opacity-30"/><p>{t('noEvents')}</p></div>
+          <div className="text-center py-20 text-text-secondary">
+            <Music size={48} className="mx-auto mb-4 text-accent/40" />
+            <p>{t('noEvents')}</p>
+          </div>
         ) : (
           <div className="space-y-6">
             {events.map((event, i) => (
-              <motion.div key={event._id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition-shadow">
+              <motion.div
+                key={event._id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white rounded-lg border border-border p-6 hover:shadow-md transition-shadow"
+              >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className={`text-xs font-semibold px-3 py-1 rounded-full ${TYPE_COLORS[event.type] || TYPE_COLORS.other}`}>
-                        {t(`types.${event.type}`)}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-primary mb-2">{getTitle(event)}</h3>
-                    <p className="text-text-main/70 text-sm leading-relaxed">{getDesc(event)}</p>
-                    <div className="flex items-center gap-4 mt-3 text-sm text-text-main/60">
-                      <span className="flex items-center gap-1"><Calendar size={14}/>{formatDate(event.date, locale)}</span>
-                      <span className="flex items-center gap-1"><Clock size={14}/>{event.time}</span>
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full bg-accent/10 text-accent uppercase tracking-wider">
+                      {t(`types.${event.type}`)}
+                    </span>
+                    <h3 className="font-display text-xl font-bold text-primary mt-3 mb-2">{getTitle(event)}</h3>
+                    <p className="text-text-faint text-sm leading-relaxed">{getDesc(event)}</p>
+                    <div className="flex items-center gap-4 mt-3 text-sm text-text-secondary">
+                      <span className="flex items-center gap-1"><Calendar size={14} className="text-accent" />{formatDate(event.date, locale)}</span>
+                      <span className="flex items-center gap-1"><Clock size={14} className="text-accent" />{event.time}</span>
                     </div>
                   </div>
-                  <Link href={`/${locale}/booking`} className="btn-accent text-sm whitespace-nowrap shrink-0">{t('bookForEvent')}</Link>
+                  <Link
+                    href={`/${locale}/booking`}
+                    className="px-5 py-2.5 rounded-md bg-accent text-primary text-sm font-semibold hover:bg-accent-dark transition-colors whitespace-nowrap"
+                  >
+                    {t('bookForEvent')}
+                  </Link>
                 </div>
               </motion.div>
             ))}

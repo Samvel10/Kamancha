@@ -8,30 +8,47 @@ export default function AboutSnippetSection() {
   const common = useTranslations('common');
   const locale = useLocale();
 
+  const stats = [
+    { value: '#3',   label: 'TripAdvisor Yerevan'  },
+    { value: '75K',  label: 'Instagram Followers'  },
+    { value: '2019', label: 'Founded'              },
+    { value: '120+', label: 'Seats'                },
+  ];
+
   return (
     <section className="py-20 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">{t('title')}</h2>
-            <p className="text-accent text-lg mb-5">{t('subtitle')}</p>
-            <p className="text-white/70 leading-relaxed mb-8">{t('text')}</p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href={`/${locale}/about`}
-                className="inline-flex items-center px-6 py-3 rounded-lg bg-accent text-white font-semibold hover:bg-accent-dark transition-colors"
-              >
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-accent mb-5">
+              {t('title')}
+            </h2>
+            <p className="text-text-muted-green text-base leading-relaxed mb-6" style={{ color: '#C8D8C0' }}>
+              {t('text')}
+            </p>
+            <blockquote
+              className="pl-5 my-7 italic"
+              style={{
+                borderLeft: '3px solid #D4A843',
+                color: '#E8D8B0',
+                fontFamily: 'var(--font-playfair), Georgia, serif',
+              }}
+            >
+              &ldquo;Every dish we serve carries the soul of our ancestors and the warmth of Armenian hospitality.&rdquo;
+              <footer className="mt-3 text-accent text-sm font-semibold not-italic" style={{ fontFamily: 'var(--font-inter), system-ui' }}>
+                — Areg Manukyan, Founder
+              </footer>
+            </blockquote>
+            <div className="flex flex-wrap gap-3 mt-7">
+              <Link href={`/${locale}/about`} className="btn-gold">
                 {common('learnMore')}
               </Link>
-              <Link
-                href={`/${locale}/booking`}
-                className="inline-flex items-center px-6 py-3 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors"
-              >
+              <Link href={`/${locale}/booking`} className="btn-outline-gold">
                 {common('bookTable')}
               </Link>
             </div>
@@ -42,13 +59,24 @@ export default function AboutSnippetSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
+            className="grid grid-cols-2 gap-4"
           >
-            <div className="bg-white/5 rounded-2xl p-8 border-l-4 border-accent">
-              <blockquote className="text-white font-display font-medium text-xl italic leading-relaxed">
-                &ldquo;Every dish we serve carries the soul of our ancestors and the warmth of Armenian hospitality.&rdquo;
-              </blockquote>
-              <p className="mt-5 text-accent font-semibold">— Areg Manukyan, Founder</p>
-            </div>
+            {stats.map((stat, i) => (
+              <div
+                key={i}
+                className="bg-primary-deeper rounded-lg p-7 text-center border border-green-border"
+              >
+                <div className="font-display font-bold text-accent text-3xl mb-2">
+                  {stat.value}
+                </div>
+                <div
+                  className="text-text-muted-green-2 uppercase"
+                  style={{ fontSize: '11px', letterSpacing: '1.5px' }}
+                >
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </motion.div>
         </div>
       </div>

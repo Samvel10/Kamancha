@@ -3,19 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #194027;
-  --color-primary-light: #2A5C3A;
-  --color-accent: #C8860A;
+  --color-primary: #1C3A28;
+  --color-primary-deeper: #162E20;
+  --color-primary-darkest: #111E17;
+  --color-accent: #D4A843;
+  --color-accent-dark: #B68A28;
   --color-bg: #FDFAF4;
+  --color-bg-music: #F5ECD7;
+  --color-text-on-green: #E8D8B0;
+  --color-text-muted-green: #B8CDB0;
+  --color-text-muted-green-2: #8AAA98;
   --color-text: #1A1A0F;
-  --color-text-secondary: #4A4A3A;
-  --color-card: #FFFFFF;
+  --color-text-secondary: #7A7060;
+  --color-text-faint: #9A8E7A;
   --color-border: #E8DFC8;
+  --color-green-border: #2A4A36;
+  --color-card: #FFFFFF;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background-color: var(--color-bg);
@@ -23,39 +29,72 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
-h1, h2, h3, .font-display {
+h1, h2, h3, h4, .font-display {
   font-family: var(--font-playfair), Georgia, serif;
 }
 
-/* RTL support for Arabic */
-[dir="rtl"] {
-  direction: rtl;
-}
+[dir="rtl"] { direction: rtl; }
 
 @layer components {
+  /* Buttons */
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-7 py-3 rounded-md font-semibold transition-colors duration-200;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+  }
+  .btn-gold:hover { background-color: var(--color-accent-dark); }
+
+  .btn-outline-gold {
+    @apply inline-flex items-center justify-center px-7 py-3 rounded-md font-semibold transition-colors duration-200 border-2;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background-color: transparent;
+  }
+  .btn-outline-gold:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+  }
+
   .btn-primary {
-    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-light transition-colors duration-200 inline-flex items-center justify-center;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold transition-colors duration-200;
+    background-color: var(--color-primary);
+    color: var(--color-accent);
   }
-  .btn-accent {
-    @apply bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-accent-dark transition-colors duration-200 inline-flex items-center justify-center;
-  }
-  .btn-outline {
-    @apply border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors duration-200 inline-flex items-center justify-center;
-  }
-  .btn-outline-dark {
-    @apply border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors duration-200 inline-flex items-center justify-center;
-  }
+  .btn-primary:hover { background-color: var(--color-primary-deeper); }
+
+  /* Section title pattern */
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-primary mb-2;
-    font-family: var(--font-playfair), Georgia, serif;
+    @apply font-display font-bold text-3xl md:text-4xl text-center;
+    color: var(--color-primary);
   }
-  .section-subtitle {
-    @apply text-accent text-lg mb-8;
+  .section-divider {
+    @apply mx-auto block my-5;
+    width: 48px;
+    height: 3px;
+    background-color: var(--color-accent);
+    border: none;
   }
-  .card {
-    @apply bg-white rounded-xl border border-border overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300;
-  }
+
+  /* Inputs */
   .input-field {
-    @apply w-full px-4 py-3 rounded-lg border border-border bg-white text-text-dark focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-colors;
+    @apply w-full px-4 py-3 rounded-md border bg-white transition-colors focus:outline-none focus:ring-2;
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+  .input-field:focus {
+    border-color: var(--color-accent);
+    --tw-ring-color: rgba(212, 168, 67, 0.3);
+  }
+
+  .input-dark {
+    @apply w-full px-4 py-3 rounded-md border transition-colors focus:outline-none focus:ring-2;
+    background-color: var(--color-primary-deeper);
+    border-color: var(--color-green-border);
+    color: var(--color-text-on-green);
+  }
+  .input-dark::placeholder { color: var(--color-text-muted-green-2); }
+  .input-dark:focus {
+    border-color: var(--color-accent);
+    --tw-ring-color: rgba(212, 168, 67, 0.3);
   }
 }

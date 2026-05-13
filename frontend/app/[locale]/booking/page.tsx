@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import toast from 'react-hot-toast';
 import { createReservation, checkAvailability } from '@/lib/api';
-import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import { CheckCircle, AlertCircle } from 'lucide-react';
 
@@ -58,13 +57,19 @@ export default function BookingPage() {
 
   if (confirmationCode) {
     return (
-      <div className="pt-16 min-h-screen bg-bg flex items-center justify-center">
-        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-white rounded-2xl shadow-xl p-10 max-w-md w-full text-center">
-          <CheckCircle size={64} className="text-secondary mx-auto mb-6"/>
-          <h2 className="text-2xl font-bold text-primary mb-3">{t('success.title')}</h2>
-          <p className="text-text-main/70 mb-4">{t('success.text')}</p>
-          <div className="bg-accent/10 rounded-xl p-4 mb-6"><span className="text-accent font-bold text-3xl tracking-widest">{confirmationCode}</span></div>
-          <p className="text-sm text-text-main/60">{t('success.note')}</p>
+      <div className="pt-16 min-h-screen bg-primary flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-primary-deeper border border-green-border rounded-xl shadow-xl p-10 max-w-md w-full text-center"
+        >
+          <CheckCircle size={56} className="text-accent mx-auto mb-5" />
+          <h2 className="font-display text-2xl font-bold text-accent mb-3">{t('success.title')}</h2>
+          <p className="text-text-muted-green mb-4">{t('success.text')}</p>
+          <div className="rounded-md p-4 mb-6 border border-green-border" style={{ backgroundColor: 'rgba(212, 168, 67, 0.1)' }}>
+            <span className="text-accent font-bold text-3xl tracking-widest">{confirmationCode}</span>
+          </div>
+          <p className="text-sm text-text-muted-green-2">{t('success.note')}</p>
         </motion.div>
       </div>
     );
@@ -77,65 +82,93 @@ export default function BookingPage() {
   ];
 
   return (
-    <div className="pt-16 min-h-screen bg-bg">
-      <div className="bg-primary py-16 text-center">
-        <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-3">{t('title')}</h1>
-        <p className="text-accent text-lg">{t('subtitle')}</p>
+    <div className="pt-16 min-h-screen bg-primary">
+      <div className="py-14 text-center">
+        <h1 className="font-display text-4xl md:text-5xl font-bold mb-3" style={{ color: '#F5ECD7' }}>
+          {t('title')}
+        </h1>
+        <hr className="mx-auto block my-4" style={{ width: '48px', height: '3px', backgroundColor: '#D4A843', border: 'none' }} />
+        <p className="text-text-muted-green text-base">{t('subtitle')}</p>
       </div>
-      <div className="max-w-3xl mx-auto px-4 py-12">
-        <motion.form initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-2xl shadow-xl p-8 space-y-6">
+
+      <div className="max-w-3xl mx-auto px-4 pb-16">
+        <motion.form
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          onSubmit={handleSubmit(onSubmit)}
+          className="bg-primary-deeper border border-green-border rounded-xl shadow-xl p-8 space-y-5"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input label={t('name')} placeholder={t('namePlaceholder')} error={errors.name?.message} {...register('name')}/>
-            <Input label={t('phone')} placeholder={t('phonePlaceholder')} type="tel" error={errors.phone?.message} {...register('phone')}/>
+            <Input variant="dark" label={t('name')} placeholder={t('namePlaceholder')} error={errors.name?.message} {...register('name')} />
+            <Input variant="dark" label={t('phone')} placeholder={t('phonePlaceholder')} type="tel" error={errors.phone?.message} {...register('phone')} />
           </div>
-          <Input label={t('email')} placeholder={t('emailPlaceholder')} type="email" error={errors.email?.message} {...register('email')}/>
+          <Input variant="dark" label={t('email')} placeholder={t('emailPlaceholder')} type="email" error={errors.email?.message} {...register('email')} />
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-text-main mb-1">{t('date')}</label>
-              <input type="date" min={new Date().toISOString().split('T')[0]} {...register('date')} className="input-field"/>
-              {errors.date && <p className="text-red-500 text-xs mt-1">{errors.date.message}</p>}
+              <label className="block text-sm font-medium text-text-on-green mb-1">{t('date')}</label>
+              <input type="date" min={new Date().toISOString().split('T')[0]} {...register('date')} className="input-dark" />
+              {errors.date && <p className="text-red-400 text-xs mt-1">{errors.date.message}</p>}
             </div>
             <div>
-              <label className="block text-sm font-medium text-text-main mb-1">{t('time')}</label>
-              <select {...register('time')} className="input-field">
+              <label className="block text-sm font-medium text-text-on-green mb-1">{t('time')}</label>
+              <select {...register('time')} className="input-dark">
                 <option value="">--</option>
                 {TIME_SLOTS.map((s) => <option key={s} value={s}>{s}</option>)}
               </select>
-              {errors.time && <p className="text-red-500 text-xs mt-1">{errors.time.message}</p>}
+              {errors.time && <p className="text-red-400 text-xs mt-1">{errors.time.message}</p>}
             </div>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-text-main mb-1">{t('guests')}</label>
-              <input type="number" min={1} max={80} {...register('guests')} className="input-field"/>
+              <label className="block text-sm font-medium text-text-on-green mb-1">{t('guests')}</label>
+              <input type="number" min={1} max={80} {...register('guests')} className="input-dark" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-text-main mb-1">{t('hall')}</label>
-              <select {...register('hallId')} className="input-field">
+              <label className="block text-sm font-medium text-text-on-green mb-1">{t('hall')}</label>
+              <select {...register('hallId')} className="input-dark">
                 {halls.map((h) => <option key={h.id} value={h.id}>{h.name}</option>)}
               </select>
             </div>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
             {halls.map((h) => (
-              <div key={h.id} className="bg-bg rounded-lg p-3 text-sm">
-                <p className="font-semibold text-primary">{h.name}</p>
-                <p className="text-text-main/60 text-xs">{h.desc}</p>
+              <div key={h.id} className="rounded-md p-3 text-sm border border-green-border" style={{ backgroundColor: '#111E17' }}>
+                <p className="font-semibold text-accent">{h.name}</p>
+                <p className="text-text-muted-green-2 text-xs mt-1">{h.desc}</p>
               </div>
             ))}
           </div>
-          <Button type="button" variant="outline" size="sm" onClick={handleCheckAvailability}>{t('checkAvailability')}</Button>
+
+          <button
+            type="button"
+            onClick={handleCheckAvailability}
+            className="px-4 py-2 rounded-md text-sm font-semibold border border-accent text-accent hover:bg-accent hover:text-primary transition-colors"
+          >
+            {t('checkAvailability')}
+          </button>
+
           {availability !== null && (
-            <div className={`flex items-center space-x-2 text-sm p-3 rounded-lg ${availability ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
-              {availability ? <CheckCircle size={18}/> : <AlertCircle size={18}/>}
+            <div className={`flex items-center space-x-2 text-sm p-3 rounded-md ${availability ? 'bg-green-900/40 text-green-300' : 'bg-red-900/40 text-red-300'}`}>
+              {availability ? <CheckCircle size={18} /> : <AlertCircle size={18} />}
               <span>{availability ? t('available') : t('unavailable')}</span>
             </div>
           )}
+
           <div>
-            <label className="block text-sm font-medium text-text-main mb-1">{t('notes')}</label>
-            <textarea {...register('notes')} placeholder={t('notesPlaceholder')} rows={3} className="input-field resize-none"/>
+            <label className="block text-sm font-medium text-text-on-green mb-1">{t('notes')}</label>
+            <textarea {...register('notes')} placeholder={t('notesPlaceholder')} rows={3} className="input-dark resize-none" />
           </div>
-          <Button type="submit" variant="accent" size="lg" loading={loading} className="w-full">{t('submit')}</Button>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full px-7 py-4 rounded-md font-bold text-base bg-accent text-primary hover:bg-accent-dark transition-colors disabled:opacity-50"
+          >
+            {loading ? '...' : t('submit')}
+          </button>
         </motion.form>
       </div>
     </div>

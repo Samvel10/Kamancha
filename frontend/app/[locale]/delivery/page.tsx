@@ -80,22 +80,23 @@ export default function DeliveryPage() {
   return (
     <div className="pt-16 min-h-screen bg-bg">
       <div className="bg-primary py-16 text-center">
-        <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-3">{t('title')}</h1>
-        <p className="text-accent text-lg">{t('subtitle')}</p>
+        <h1 className="font-display text-4xl md:text-5xl font-bold mb-3" style={{ color: '#F5ECD7' }}>{t('title')}</h1>
+        <hr className="section-divider" />
+        <p className="text-text-muted-green text-base">{t('subtitle')}</p>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             {loading ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {Array.from({ length: 6 }).map((_, i) => <div key={i} className="card animate-pulse h-32"/>)}
+                {Array.from({ length: 6 }).map((_, i) => <div key={i} className="bg-white rounded-lg border border-border animate-pulse h-32"/>)}
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {items.map((item) => {
                   const cartItem = cart.find((c) => c.id === item.id);
                   return (
-                    <div key={item.id} className="card p-4 flex items-center gap-4 hover:shadow-md transition-shadow">
+                    <div key={item.id} className="bg-white rounded-lg border border-border p-4 flex items-center gap-4 hover:shadow-md transition-shadow">
                       <div className="w-16 h-16 bg-bg-dark rounded-lg flex items-center justify-center text-2xl shrink-0">
                         {item.image_url ? <img src={item.image_url} alt={item.name} className="w-full h-full object-cover rounded-lg"/> : <span className="text-text-secondary/30 text-xs">img</span>}
                       </div>
@@ -107,10 +108,10 @@ export default function DeliveryPage() {
                         <div className="flex items-center gap-2">
                           <button onClick={() => updateQty(item.id, -1)} className="w-7 h-7 bg-bg-dark rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors"><Minus size={12}/></button>
                           <span className="text-sm font-bold w-4 text-center">{cartItem.quantity}</span>
-                          <button onClick={() => updateQty(item.id, 1)} className="w-7 h-7 bg-accent rounded-full flex items-center justify-center text-white hover:bg-accent-light transition-colors"><Plus size={12}/></button>
+                          <button onClick={() => updateQty(item.id, 1)} className="w-7 h-7 bg-accent rounded-full flex items-center justify-center text-primary hover:bg-accent-dark transition-colors"><Plus size={12}/></button>
                         </div>
                       ) : (
-                        <button onClick={() => addToCart(item)} className="btn-accent text-xs px-3 py-2"><Plus size={14}/></button>
+                        <button onClick={() => addToCart(item)} className="bg-accent text-primary text-xs px-3 py-2 rounded-md hover:bg-accent-dark transition-colors"><Plus size={14}/></button>
                       )}
                     </div>
                   );
@@ -123,18 +124,18 @@ export default function DeliveryPage() {
             <div className="bg-white rounded-2xl shadow-md p-6">
               <h2 className="font-bold text-primary text-xl mb-4 flex items-center gap-2">
                 <ShoppingCart size={20}/>{t('cart')}
-                {cart.length > 0 && <span className="bg-accent text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">{cart.length}</span>}
+                {cart.length > 0 && <span className="bg-accent text-primary text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">{cart.length}</span>}
               </h2>
               {cart.length === 0 ? (
-                <p className="text-text-main/50 text-sm text-center py-4">{t('cartEmpty')}</p>
+                <p className="text-text-dark/50 text-sm text-center py-4">{t('cartEmpty')}</p>
               ) : (
                 <>
                   <div className="space-y-3 mb-4">
                     {cart.map((item) => (
                       <div key={item.id} className="flex items-center justify-between text-sm">
                         <div className="flex-1">
-                          <p className="font-medium text-text-main truncate">{item.name}</p>
-                          <p className="text-text-main/50 text-xs">×{item.quantity}</p>
+                          <p className="font-medium text-text-dark truncate">{item.name}</p>
+                          <p className="text-text-dark/50 text-xs">×{item.quantity}</p>
                         </div>
                         <div className="flex items-center gap-2">
                           <span className="text-accent font-bold">{formatPrice(item.price * item.quantity)}</span>

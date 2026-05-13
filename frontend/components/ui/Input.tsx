@@ -4,26 +4,25 @@ import { InputHTMLAttributes, forwardRef } from 'react';
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
+  variant?: 'light' | 'dark';
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, label, error, ...props }, ref) => (
-    <div className="w-full">
-      {label && <label className="block text-sm font-medium text-text-main mb-1">{label}</label>}
-      <input
-        ref={ref}
-        className={cn(
-          'w-full px-4 py-3 rounded-lg border bg-white text-text-main',
-          'focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent',
-          'placeholder:text-gray-400 transition-all',
-          error ? 'border-red-400' : 'border-bg-dark',
-          className
-        )}
-        {...props}
-      />
-      {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
-    </div>
-  )
+  ({ className, label, error, variant = 'light', ...props }, ref) => {
+    const labelClass = variant === 'dark' ? 'text-text-on-green' : 'text-text-dark';
+    const fieldClass = variant === 'dark' ? 'input-dark' : 'input-field';
+    return (
+      <div className="w-full">
+        {label && <label className={cn('block text-sm font-medium mb-1', labelClass)}>{label}</label>}
+        <input
+          ref={ref}
+          className={cn(fieldClass, error && 'border-red-400', className)}
+          {...props}
+        />
+        {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+      </div>
+    );
+  }
 );
 Input.displayName = 'Input';
 export default Input;

@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useTranslations, useLocale } from 'next-intl';
 import { getMusicCountdown } from '@/lib/utils';
-import { Music } from 'lucide-react';
 
 export default function MusicSection() {
   const t = useTranslations('home.music');
@@ -19,7 +18,7 @@ export default function MusicSection() {
   }, []);
 
   return (
-    <section className="py-20 bg-bg-dark">
+    <section className="bg-bg-music py-20 relative" style={{ borderTop: '3px solid #D4A843' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -27,44 +26,47 @@ export default function MusicSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <div className="inline-flex items-center space-x-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-6">
-            <Music size={16} className="text-accent" />
-            <span className="text-accent text-sm font-semibold uppercase tracking-wide">Live Music</span>
-          </div>
+          <h2 className="section-title">{t('title')}</h2>
+          <hr className="section-divider" />
+          <p className="text-text-secondary text-base mb-10">{t('subtitle')}</p>
 
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-3">{t('title')}</h2>
-          <p className="text-text-secondary text-lg mb-10">{t('subtitle')}</p>
-
-          <div className="bg-primary rounded-2xl p-10 inline-block min-w-[320px]">
-            {countdown.isLive ? (
-              <div>
-                <p className="text-accent font-bold text-3xl animate-pulse mb-2">{t('liveNow')}</p>
-                <p className="text-white/60 text-sm">Music is playing now — come join us!</p>
-              </div>
-            ) : (
-              <div>
-                <p className="text-white/50 text-xs uppercase tracking-widest mb-5">{t('countdown')}</p>
-                <div className="flex items-center justify-center space-x-6 text-white">
-                  {[
-                    { val: countdown.hours,   label: t('hours')   },
-                    { val: countdown.minutes, label: t('minutes') },
-                    { val: countdown.seconds, label: t('seconds') },
-                  ].map(({ val, label }, idx) => (
-                    <div key={idx} className="text-center">
-                      <div className="text-5xl font-bold tabular-nums font-display">{String(val).padStart(2, '0')}</div>
-                      <div className="text-xs text-white/40 uppercase tracking-wide mt-1">{label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-
-          <div className="mt-10">
-            <Link
-              href={`/${locale}/events`}
-              className="inline-flex items-center px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary-light transition-colors"
+          <div className="inline-flex items-center bg-primary rounded-md px-8 py-5 mb-8">
+            <span
+              className="text-accent font-display font-bold"
+              style={{ fontSize: '32px', letterSpacing: '2px' }}
             >
+              19:30
+            </span>
+            <span
+              className="text-text-muted-green-2 ml-4 uppercase"
+              style={{ fontSize: '11px', letterSpacing: '1.5px' }}
+            >
+              Daily
+            </span>
+          </div>
+
+          {!countdown.isLive ? (
+            <div className="text-text-secondary text-sm mb-8">
+              <span className="uppercase tracking-widest text-xs">{t('countdown')}</span>
+              <div className="flex items-center justify-center space-x-6 mt-4 text-primary">
+                {[
+                  { val: countdown.hours,   label: t('hours')   },
+                  { val: countdown.minutes, label: t('minutes') },
+                  { val: countdown.seconds, label: t('seconds') },
+                ].map(({ val, label }, idx) => (
+                  <div key={idx} className="text-center">
+                    <div className="text-3xl font-bold tabular-nums font-display">{String(val).padStart(2, '0')}</div>
+                    <div className="text-xs text-text-faint uppercase tracking-wide mt-0.5">{label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <p className="text-accent font-bold text-2xl animate-pulse mb-8">{t('liveNow')}</p>
+          )}
+
+          <div>
+            <Link href={`/${locale}/events`} className="btn-primary">
               View Events Schedule
             </Link>
           </div>
