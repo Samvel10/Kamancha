@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   postgres:
     image: postgres:16-alpine
@@ -7,8 +5,6 @@ services:
       POSTGRES_USER: kamancha
       POSTGRES_PASSWORD: kamancha
       POSTGRES_DB: kamancha
-    ports:
-      - '5432:5432'
     volumes:
       - pg_data:/var/lib/postgresql/data
     healthcheck:
@@ -19,8 +15,6 @@ services:
 
   mongo:
     image: mongo:7
-    ports:
-      - '27017:27017'
     volumes:
       - mongo_data:/data/db
     healthcheck:
@@ -31,8 +25,6 @@ services:
 
   redis:
     image: redis:7-alpine
-    ports:
-      - '6379:6379'
     volumes:
       - redis_data:/data
     healthcheck:
@@ -47,8 +39,22 @@ services:
       dockerfile: Dockerfile
     ports:
       - '4000:4000'
-    env_file:
-      - ./backend/.env.example
+    environment:
+      NODE_ENV: development
+      PORT: 4000
+      DATABASE_URL: postgresql://kamancha:kamancha@postgres:5432/kamancha
+      MONGODB_URI: mongodb://mongo:27017/kamancha
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: kamancha_jwt_secret_super_long_key_32chars_minimum
+      JWT_REFRESH_SECRET: kamancha_refresh_secret_super_long_key_minimum
+      JWT_EXPIRES_IN: 15m
+      JWT_REFRESH_EXPIRES_IN: 7d
+      SMTP_HOST: smtp.gmail.com
+      SMTP_PORT: "587"
+      SMTP_USER: noreply@kamancha.am
+      SMTP_PASS: placeholder
+      EMAIL_FROM: "Kamancha Restaurant <noreply@kamancha.am>"
+      FRONTEND_URL: http://localhost:3000
     depends_on:
       postgres:
         condition: service_healthy
@@ -56,9 +62,7 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    volumes:
-      - ./backend:/app
-      - /app/node_modules
+    restart: unless-stopped
 
   frontend:
     build:
@@ -66,14 +70,12 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3000:3000'
-    env_file:
-      - ./frontend/.env.local
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:4000
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
     depends_on:
       - backend
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-      - /app/.next
+    restart: unless-stopped
 
 volumes:
   pg_data:

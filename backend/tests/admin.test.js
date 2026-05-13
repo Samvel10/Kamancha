@@ -45,7 +45,7 @@ describe('POST /api/admin/login', () => {
   it('rejects invalid password', async () => {
     const res = await request(app)
       .post('/api/admin/login')
-      .send({ email: 'testadmin@kamancha.am', password: 'wrong' });
+      .send({ email: 'testadmin@kamancha.am', password: 'WrongPassword123!' });
     expect(res.status).toBe(401);
   });
 });
