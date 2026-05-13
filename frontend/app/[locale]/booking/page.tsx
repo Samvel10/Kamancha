@@ -84,7 +84,7 @@ export default function BookingPage() {
   return (
     <div className="pt-16 min-h-screen bg-primary">
       <div className="py-14 text-center">
-        <h1 className="font-display text-4xl md:text-5xl font-bold mb-3" style={{ color: '#F5ECD7' }}>
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-3" style={{ color: '#F5ECD7' }}>
           {t('title')}
         </h1>
         <hr className="mx-auto block my-4" style={{ width: '48px', height: '3px', backgroundColor: '#D4A843', border: 'none' }} />
@@ -96,7 +96,7 @@ export default function BookingPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-primary-deeper border border-green-border rounded-xl shadow-xl p-8 space-y-5"
+          className="bg-primary-deeper border border-green-border rounded-xl shadow-xl p-5 sm:p-8 space-y-5"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input variant="dark" label={t('name')} placeholder={t('namePlaceholder')} error={errors.name?.message} {...register('name')} />

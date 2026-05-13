@@ -98,3 +98,30 @@ h1, h2, h3, h4, .font-display {
     --tw-ring-color: rgba(212, 168, 67, 0.3);
   }
 }
+
+/* ── Responsive: mobile-first breakpoints ─────────────────────────────────── */
+/* Base styles target mobile (<480px). Tailwind handles md:/lg: at 768/1024. */
+
+@media (max-width: 480px) {
+  .section-title { font-size: 1.5rem; line-height: 1.2; }
+  .section-divider { margin-top: 1rem; margin-bottom: 1rem; }
+  .btn-gold, .btn-outline-gold { padding: 0.625rem 1.25rem; font-size: 0.95rem; width: 100%; }
+  .btn-primary { padding: 0.625rem 1rem; font-size: 0.9rem; }
+  .input-field, .input-dark { padding: 0.75rem 0.875rem; font-size: 0.95rem; }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .section-title { font-size: 1.875rem; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .section-title { font-size: 2rem; }
+}
+
+@media (min-width: 1025px) {
+  .section-title { font-size: 2.25rem; }
+}
+
+/* Prevent horizontal overflow on small viewports */
+html, body { overflow-x: hidden; max-width: 100%; }
+img, video { max-width: 100%; height: auto; }

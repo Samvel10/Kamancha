@@ -64,13 +64,13 @@ export default function Navbar({ locale }: { locale: string }) {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-1">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'px-3 py-2 rounded text-sm font-medium transition-colors duration-200',
+                  'px-2 lg:px-3 py-2 rounded text-xs lg:text-sm font-medium transition-colors duration-200 whitespace-nowrap',
                   isActive(link.href)
                     ? 'text-accent'
                     : 'text-text-on-green hover:text-accent'
@@ -116,14 +116,14 @@ export default function Navbar({ locale }: { locale: string }) {
             {/* Book button */}
             <Link
               href={`/${locale}/booking`}
-              className="hidden md:inline-flex items-center px-5 py-2 rounded-md bg-accent text-primary text-sm font-semibold hover:bg-accent-dark transition-colors"
+              className="hidden lg:inline-flex items-center px-5 py-2 rounded-md bg-accent text-primary text-sm font-semibold hover:bg-accent-dark transition-colors"
             >
               {t('booking')}
             </Link>
 
             {/* Mobile menu toggle */}
             <button
-              className="lg:hidden text-text-on-green hover:text-accent transition-colors p-1"
+              className="md:hidden text-text-on-green hover:text-accent transition-colors p-1"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
@@ -135,7 +135,7 @@ export default function Navbar({ locale }: { locale: string }) {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-primary-deeper border-t border-green-border">
+        <div className="md:hidden bg-primary-deeper border-t border-green-border">
           <div className="px-4 py-2 space-y-0.5">
             {links.map((link) => (
               <Link

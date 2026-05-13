@@ -80,7 +80,7 @@ export default function DeliveryPage() {
   return (
     <div className="pt-16 min-h-screen bg-bg">
       <div className="bg-primary py-16 text-center">
-        <h1 className="font-display text-4xl md:text-5xl font-bold mb-3" style={{ color: '#F5ECD7' }}>{t('title')}</h1>
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-3" style={{ color: '#F5ECD7' }}>{t('title')}</h1>
         <hr className="section-divider" />
         <p className="text-text-muted-green text-base">{t('subtitle')}</p>
       </div>

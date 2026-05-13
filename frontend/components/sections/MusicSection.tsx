@@ -30,16 +30,16 @@ export default function MusicSection() {
           <hr className="section-divider" />
           <p className="text-text-secondary text-base mb-10">{t('subtitle')}</p>
 
-          <div className="inline-flex items-center bg-primary rounded-md px-8 py-5 mb-8">
+          <div className="inline-flex items-center bg-primary rounded-md px-6 sm:px-8 py-4 sm:py-5 mb-8">
             <span
-              className="text-accent font-display font-bold"
-              style={{ fontSize: '32px', letterSpacing: '2px' }}
+              className="text-accent font-display font-bold text-2xl sm:text-[32px]"
+              style={{ letterSpacing: '2px' }}
             >
               19:30
             </span>
             <span
-              className="text-text-muted-green-2 ml-4 uppercase"
-              style={{ fontSize: '11px', letterSpacing: '1.5px' }}
+              className="text-text-muted-green-2 ml-3 sm:ml-4 uppercase text-[10px] sm:text-[11px]"
+              style={{ letterSpacing: '1.5px' }}
             >
               Daily
             </span>
@@ -48,7 +48,7 @@ export default function MusicSection() {
           {!countdown.isLive ? (
             <div className="text-text-secondary text-sm mb-8">
               <span className="uppercase tracking-widest text-xs">{t('countdown')}</span>
-              <div className="flex items-center justify-center space-x-6 mt-4 text-primary">
+              <div className="flex items-center justify-center space-x-4 sm:space-x-6 mt-4 text-primary">
                 {[
                   { val: countdown.hours,   label: t('hours')   },
                   { val: countdown.minutes, label: t('minutes') },
