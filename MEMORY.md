@@ -169,13 +169,16 @@ id, token (unique), userId, expiresAt, createdAt
 
 ### MongoDB — `kamancha` database (prod) / `kamancha_test` (tests)
 
-**MenuItem** — 10 seeded records
+**MenuItem** — 172 seeded records (real Kamancha menu)
 ```
-name{hy,en,ru,fr,de,it,es,zh,hi,ar}, description{...same},
+name{hy,en,ru}, description{hy,en,ru},
 price (AMD), category, image_url, is_available, is_popular, sort_order, tags[]
 ```
 
-**Category** — 7 seeded (appetizers, soups, mains, grill, salads, desserts, drinks)
+**Category** — 17 seeded:
+breakfast, cold-appetizers, hot-appetizers, salads, soups, mains,
+pide, bbq, fish, sides, sauces, desserts, lemonades, coffee, tea,
+soft-drinks, beer
 
 **Review** — 5 seeded records
 ```
@@ -279,7 +282,11 @@ url, caption{...langs}, type (food/interior/events), is_active
 - Reservation booking: `POST /api/reservations` returns confirmation code
 - Availability check: `GET /api/reservations/check` returns `{available: bool}`
 - Admin login: `POST /api/admin/login` returns JWT accessToken
-- Seed data: 10 menu items, 5 reviews, 3 events, 3 halls, 1 admin user
+- Seed data: 172 real menu items (17 categories), 7 reviews, 4 events, 12 gallery images, 3 halls, 1 admin user
+- Phone: +374 95 711700 (updated in all 10 locale files)
+- Hours: 10:00–00:00 every day (updated in all 10 locale files)
+- Popular items: Assorted Tolma, BBQ Set Big, Kamancha Set, Ghapama (Small), Lamb Shoulder, Panrkhash, Sweet Kamancha, Lamb Ghavurma
+- Gallery: 12 images from kamancharest.com/images/img1.jpg–img12.jpg
 - All 3 other Apache vhosts on server untouched and healthy (araratatelier, armcrypto, armenianlibery)
 - GitHub: https://github.com/Samvel10/Kamancha (5 commits on `main`)
 
