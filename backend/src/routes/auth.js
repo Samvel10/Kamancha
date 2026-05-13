@@ -2,9 +2,44 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const { prisma } = require('../config/db');
-const { validate, loginSchema } = require('../middleware/validate');
+const { validate, loginSchema, registerSchema } = require('../middleware/validate');
 const { generateTokens, verifyToken } = require('../middleware/auth');
 const { authLimiter } = require('../middleware/security');
+
+router.post('/register', authLimiter, validate(registerSchema), async (req, res, next) => {
+  try {
+    const { email, password, name, phone } = req.body;
+    const existing = await prisma.user.findUnique({ where: { email } });
+    if (existing) return res.status(409).json({ error: 'Email already registered' });
+
+    const hash = await bcrypt.hash(password, 12);
+    const user = await prisma.user.create({
+      data: { email, password: hash, name, phone: phone || null },
+    });
+
+    const { accessToken, refreshToken } = generateTokens({ id: user.id, email: user.email, role: user.role });
+    const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+    await prisma.refreshToken.create({ data: { token: refreshToken, userId: user.id, expiresAt } });
+
+    res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'strict', maxAge: 7 * 24 * 60 * 60 * 1000 });
+    res.status(201).json({ accessToken, user: { id: user.id, email: user.email, name: user.name, phone: user.phone, role: user.role } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/me', verifyToken, async (req, res, next) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: req.user.id },
+      select: { id: true, email: true, name: true, phone: true, role: true, createdAt: true },
+    });
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    res.json({ user });
+  } catch (err) {
+    next(err);
+  }
+});
 
 router.post('/login', authLimiter, validate(loginSchema), async (req, res, next) => {
   try {
@@ -21,7 +56,7 @@ router.post('/login', authLimiter, validate(loginSchema), async (req, res, next)
     await prisma.refreshToken.create({ data: { token: refreshToken, userId: user.id, expiresAt } });
 
     res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'strict', maxAge: 7 * 24 * 60 * 60 * 1000 });
-    res.json({ accessToken, user: { id: user.id, email: user.email, name: user.name, role: user.role } });
+    res.json({ accessToken, user: { id: user.id, email: user.email, name: user.name, phone: user.phone, role: user.role } });
   } catch (err) {
     next(err);
   }

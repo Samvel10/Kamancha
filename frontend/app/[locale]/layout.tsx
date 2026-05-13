@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { Toaster } from 'react-hot-toast';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import Providers from '@/components/Providers';
 import '../globals.css';
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter' });
@@ -34,10 +35,12 @@ export default async function LocaleLayout({
     <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'} className={`${inter.variable} ${playfair.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <Navbar locale={locale} />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-          <Toaster position="top-center" toastOptions={{ duration: 4000 }} />
+          <Providers>
+            <Navbar locale={locale} />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+            <Toaster position="top-center" toastOptions={{ duration: 4000 }} />
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>

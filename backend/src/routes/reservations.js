@@ -1,10 +1,23 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 const { v4: uuidv4 } = require('uuid');
 const { prisma } = require('../config/db');
 const { validate, reservationSchema } = require('../middleware/validate');
 const { reservationLimiter } = require('../middleware/security');
 const { sendConfirmationEmail } = require('../utils/email');
+
+// Best-effort user lookup — attaches reservation to user if a valid token is sent,
+// but anonymous bookings remain allowed.
+function optionalUser(req, _res, next) {
+  const auth = req.headers.authorization;
+  if (auth && auth.startsWith('Bearer ')) {
+    try {
+      req.user = jwt.verify(auth.split(' ')[1], process.env.JWT_SECRET);
+    } catch { /* ignore — treat as anonymous */ }
+  }
+  next();
+}
 
 router.get('/check', async (req, res, next) => {
   try {
@@ -26,7 +39,7 @@ router.get('/check', async (req, res, next) => {
   }
 });
 
-router.post('/', reservationLimiter, validate(reservationSchema), async (req, res, next) => {
+router.post('/', reservationLimiter, optionalUser, validate(reservationSchema), async (req, res, next) => {
   try {
     const { name, phone, email, date, time, guests, hallId, notes, lang } = req.body;
 
@@ -53,6 +66,7 @@ router.post('/', reservationLimiter, validate(reservationSchema), async (req, re
         lang: lang || 'hy',
         confirmationCode,
         status: 'PENDING',
+        userId: req.user?.id || null,
       },
       include: { hall: true },
     });

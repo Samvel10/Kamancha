@@ -1,11 +1,16 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Utensils, Star, Tag } from 'lucide-react';
+import { X, Utensils, Star, Tag, Heart, Plus } from 'lucide-react';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 import { getMenuItem } from '@/lib/api';
-import { formatPrice } from '@/lib/utils';
+import { formatPrice, cn } from '@/lib/utils';
+import { useAuth } from '@/lib/auth';
+import { useCart } from '@/lib/cart';
+import { useFavorites } from '@/lib/favorites';
 
 interface ItemDetail {
   id: string;
@@ -34,8 +39,13 @@ export default function MenuItemModal({
   const t = useTranslations('menu');
   const common = useTranslations('common');
   const locale = useLocale();
+  const router = useRouter();
+  const { user } = useAuth();
+  const cart = useCart();
+  const { isFavorite, toggle: toggleFavorite } = useFavorites();
   const [item, setItem] = useState<ItemDetail | null>(null);
   const [loading, setLoading] = useState(false);
+  const [favBusy, setFavBusy] = useState(false);
 
   useEffect(() => {
     if (!itemId) {
@@ -88,6 +98,35 @@ export default function MenuItemModal({
             >
               <X size={20} />
             </button>
+            {item && (
+              <button
+                onClick={async () => {
+                  if (!user) {
+                    toast.error(t('loginToFavorite'));
+                    router.push(`/${locale}/login?redirect=/${locale}/menu`);
+                    return;
+                  }
+                  setFavBusy(true);
+                  try {
+                    await toggleFavorite(item.id);
+                    toast.success(isFavorite(item.id) ? t('removedFromFavorites') : t('addedToFavorites'));
+                  } catch {
+                    /* errored already */
+                  } finally {
+                    setFavBusy(false);
+                  }
+                }}
+                disabled={favBusy}
+                aria-label="Toggle favorite"
+                className="absolute top-3 left-3 z-10 w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-md transition-colors disabled:opacity-60"
+              >
+                <Heart
+                  size={20}
+                  className={cn(isFavorite(item.id) ? 'text-red-500' : 'text-text-faint')}
+                  fill={isFavorite(item.id) ? 'currentColor' : 'none'}
+                />
+              </button>
+            )}
 
             {loading ? (
               <div className="p-10 text-center text-text-secondary">
@@ -175,13 +214,24 @@ export default function MenuItemModal({
                   )}
 
                   <div className="flex flex-col sm:flex-row gap-3 pt-3 border-t border-border">
-                    <Link
-                      href={`/${locale}/delivery`}
-                      onClick={onClose}
-                      className="btn-gold flex-1 text-center"
-                    >
-                      {common('orderNow') || 'Order'}
-                    </Link>
+                    {item.is_available && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          cart.add({
+                            id: item.id,
+                            name: item.name_hy || item.name,
+                            price: item.price,
+                            image_url: item.image_url,
+                          });
+                          toast.success(t('addedToCart'));
+                        }}
+                        className="btn-gold flex-1 text-center inline-flex items-center justify-center gap-2"
+                      >
+                        <Plus size={16} />
+                        {t('addToCart')}
+                      </button>
+                    )}
                     <Link
                       href={`/${locale}/booking`}
                       onClick={onClose}

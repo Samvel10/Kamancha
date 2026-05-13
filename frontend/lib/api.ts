@@ -101,3 +101,60 @@ export async function deleteMenuItem(token: string, id: string) {
   });
   return res.data;
 }
+
+// ── User account ────────────────────────────────────────────────────────────
+function authHeaders(): Record<string, string> {
+  if (typeof window === 'undefined') return {};
+  const t = localStorage.getItem('kamancha_token');
+  return t ? { Authorization: `Bearer ${t}` } : {};
+}
+
+export interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+  image_url?: string;
+}
+
+export async function getMyReservations() {
+  const res = await api.get('/api/users/me/reservations', { headers: authHeaders() });
+  return res.data;
+}
+
+export async function cancelMyReservation(id: number) {
+  const res = await api.patch(`/api/users/me/reservations/${id}/cancel`, {}, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function getMyOrders() {
+  const res = await api.get('/api/users/me/orders', { headers: authHeaders() });
+  return res.data;
+}
+
+export async function createOrder(order: {
+  name: string; phone: string; address: string; notes?: string; items: CartItem[];
+}) {
+  const res = await api.post('/api/users/me/orders', order, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function getMyFavorites(lang = 'en') {
+  const res = await api.get('/api/users/me/favorites', { headers: authHeaders(), params: { lang } });
+  return res.data;
+}
+
+export async function addFavorite(menuItemId: string) {
+  const res = await api.post(`/api/users/me/favorites/${menuItemId}`, {}, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function removeFavorite(menuItemId: string) {
+  const res = await api.delete(`/api/users/me/favorites/${menuItemId}`, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function updateProfile(data: { name?: string; phone?: string; password?: string }) {
+  const res = await api.patch('/api/users/me', data, { headers: authHeaders() });
+  return res.data;
+}
