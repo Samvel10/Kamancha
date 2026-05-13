@@ -1,0 +1,259 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "booking": "Book a Table",
+    "about": "About",
+    "gallery": "Gallery",
+    "events": "Events",
+    "reviews": "Reviews",
+    "delivery": "Delivery",
+    "admin": "Admin"
+  },
+  "common": {
+    "bookTable": "Book a Table",
+    "viewMenu": "View Menu",
+    "learnMore": "Learn More",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "close": "Close",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "amd": "AMD",
+    "perPerson": "per person",
+    "guests": "guests",
+    "available": "Available",
+    "unavailable": "Unavailable",
+    "seeAll": "See All"
+  },
+  "home": {
+    "hero": {
+      "title": "Kamancha Restaurant",
+      "subtitle": "Authentic Armenian Cuisine in the Heart of Yerevan",
+      "description": "TripAdvisor #3 in Yerevan · Live Music Every Evening · Tumanyan 23",
+      "cta": "Book Your Table",
+      "ctaMenu": "Explore Menu"
+    },
+    "popular": {
+      "title": "Our Signature Dishes",
+      "subtitle": "Beloved recipes passed down through generations"
+    },
+    "music": {
+      "title": "Live Music Tonight",
+      "subtitle": "Every evening starting at 20:00",
+      "countdown": "Starts in",
+      "days": "days",
+      "hours": "hours",
+      "minutes": "min",
+      "seconds": "sec",
+      "liveNow": "Live Now!"
+    },
+    "about": {
+      "title": "Our Story",
+      "subtitle": "Born from a love of Armenian culinary heritage",
+      "text": "Kamancha is more than a restaurant — it is a journey through the rich tapestry of Armenian culture, flavors, and hospitality. Named after the beloved Armenian string instrument, every dish we serve carries the soul of our ancestors."
+    },
+    "gallery": {
+      "title": "Moments at Kamancha",
+      "subtitle": "A glimpse into our world"
+    },
+    "stats": {
+      "founded": "Est. 2018",
+      "tripadvisor": "TripAdvisor #3",
+      "instagram": "75K Followers",
+      "tables": "120+ Seats"
+    }
+  },
+  "menu": {
+    "title": "Our Menu",
+    "subtitle": "Authentic Armenian cuisine with a modern touch",
+    "search": "Search dishes...",
+    "allCategories": "All",
+    "noResults": "No dishes found",
+    "popular": "Popular",
+    "unavailable": "Currently unavailable",
+    "currency": "AMD"
+  },
+  "booking": {
+    "title": "Reserve a Table",
+    "subtitle": "We look forward to welcoming you",
+    "name": "Full Name",
+    "namePlaceholder": "Areg Petrosyan",
+    "phone": "Phone Number",
+    "phonePlaceholder": "+374 91 000000",
+    "email": "Email Address",
+    "emailPlaceholder": "your@email.com",
+    "date": "Date",
+    "time": "Time",
+    "guests": "Number of Guests",
+    "hall": "Choose Hall",
+    "selectHall": "Select a hall",
+    "notes": "Special Requests",
+    "notesPlaceholder": "Allergy info, birthday, anniversary...",
+    "submit": "Book Now",
+    "checkAvailability": "Check Availability",
+    "available": "This slot is available",
+    "unavailable": "This slot is taken, please choose another time",
+    "success": {
+      "title": "Booking Confirmed!",
+      "text": "Your confirmation code is:",
+      "note": "A confirmation email has been sent to your address."
+    },
+    "error": "Booking failed. Please try again.",
+    "halls": {
+      "1": {
+        "name": "Main Hall",
+        "desc": "80 seats · Live music stage · Perfect for large gatherings"
+      },
+      "2": {
+        "name": "Garden Terrace",
+        "desc": "40 seats · Open air · Beautiful garden views"
+      },
+      "3": {
+        "name": "Private Room",
+        "desc": "20 seats · Intimate · Ideal for private events"
+      }
+    },
+    "timeSlots": ["12:00", "13:00", "14:00", "15:00", "18:00", "19:00", "20:00", "21:00", "22:00"]
+  },
+  "about": {
+    "title": "About Kamancha",
+    "subtitle": "A Yerevan landmark since 2018",
+    "story": {
+      "title": "Our Story",
+      "text1": "Kamancha Restaurant opened its doors in 2018 in the vibrant heart of Yerevan, on Tumanyan Street 23. Named after the ancient Armenian string instrument, our restaurant is a celebration of Armenian culture, music, and gastronomy.",
+      "text2": "We are proud to be ranked #3 on TripAdvisor in Yerevan, with over 75,000 Instagram followers who join us on our culinary journey. Our chefs use only the finest local ingredients to craft dishes that honor centuries-old Armenian recipes."
+    },
+    "founder": {
+      "title": "Meet the Founder",
+      "name": "Areg Manukyan",
+      "role": "Founder & Head Chef",
+      "bio": "Areg, known as @restormania on social media, is a passionate culinary artist who dedicated his life to preserving and reimagining Armenian cuisine. With over 15 years of experience, he has made Kamancha a destination for food lovers worldwide.",
+      "instagram": "@restormania"
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "The people who make Kamancha special"
+    },
+    "values": {
+      "title": "Our Values",
+      "authenticity": "Authentic Recipes",
+      "authenticityDesc": "Every dish is crafted from traditional Armenian recipes",
+      "quality": "Premium Quality",
+      "qualityDesc": "Only the finest locally sourced ingredients",
+      "hospitality": "Warm Hospitality",
+      "hospitalityDesc": "Every guest is family at Kamancha",
+      "culture": "Cultural Heritage",
+      "cultureDesc": "Celebrating Armenian music, art, and tradition"
+    },
+    "address": "Yerevan, Tumanyan Street 23",
+    "phone": "+374 10 000000",
+    "hours": "Mon–Sun: 12:00 – 24:00"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Life at Kamancha",
+    "filter": {
+      "all": "All",
+      "food": "Food",
+      "interior": "Interior",
+      "events": "Events",
+      "team": "Team"
+    },
+    "noImages": "No images in this category yet"
+  },
+  "events": {
+    "title": "Events",
+    "subtitle": "Live music and special evenings",
+    "upcoming": "Upcoming Events",
+    "noEvents": "No upcoming events at the moment",
+    "types": {
+      "music": "Live Music",
+      "special": "Special Evening",
+      "holiday": "Holiday",
+      "other": "Event"
+    },
+    "bookForEvent": "Book for This Event"
+  },
+  "reviews": {
+    "title": "Guest Reviews",
+    "subtitle": "What our guests say",
+    "avgRating": "Average Rating",
+    "sources": {
+      "all": "All Sources",
+      "tripadvisor": "TripAdvisor",
+      "google": "Google",
+      "internal": "Direct"
+    },
+    "noReviews": "No reviews yet",
+    "tripAdvisorRank": "TripAdvisor Yerevan #3"
+  },
+  "delivery": {
+    "title": "Order Delivery",
+    "subtitle": "Kamancha at your doorstep",
+    "cart": "Your Cart",
+    "cartEmpty": "Your cart is empty",
+    "addToCart": "Add to Cart",
+    "removeFromCart": "Remove",
+    "quantity": "Quantity",
+    "total": "Total",
+    "checkout": "Checkout",
+    "orderSuccess": "Order placed successfully!",
+    "orderError": "Order failed. Please try again.",
+    "address": "Delivery Address",
+    "addressPlaceholder": "Enter your address",
+    "deliveryFee": "Delivery Fee",
+    "free": "Free",
+    "minOrder": "Minimum order: 5,000 AMD",
+    "form": {
+      "name": "Name",
+      "phone": "Phone",
+      "address": "Address",
+      "submit": "Place Order"
+    }
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "login": "Admin Login",
+    "logout": "Logout",
+    "reservations": "Reservations",
+    "menu": "Menu Items",
+    "gallery": "Gallery",
+    "events": "Events",
+    "stats": {
+      "total": "Total Bookings",
+      "pending": "Pending",
+      "menuItems": "Menu Items"
+    },
+    "status": {
+      "PENDING": "Pending",
+      "CONFIRMED": "Confirmed",
+      "CANCELLED": "Cancelled",
+      "COMPLETED": "Completed"
+    },
+    "actions": {
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "complete": "Complete",
+      "delete": "Delete",
+      "add": "Add New",
+      "edit": "Edit",
+      "save": "Save"
+    }
+  },
+  "footer": {
+    "address": "Yerevan, Tumanyan 23",
+    "phone": "+374 10 000000",
+    "email": "info@kamancha.am",
+    "hours": "Mon–Sun: 12:00 – 24:00",
+    "social": "Follow Us",
+    "rights": "All rights reserved",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms"
+    }
+  }
+}

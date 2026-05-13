@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String
+  phone     String?
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  reservations Reservation[]
+}
+
+model AdminUser {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Hall {
+  id          Int     @id @default(autoincrement())
+  name        String
+  nameHy      String
+  capacity    Int
+  description String?
+  isActive    Boolean @default(true)
+
+  reservations Reservation[]
+}
+
+model Reservation {
+  id               Int               @id @default(autoincrement())
+  name             String
+  phone            String
+  email            String
+  date             DateTime          @db.Date
+  time             String
+  guests           Int
+  hallId           Int
+  status           ReservationStatus @default(PENDING)
+  confirmationCode String            @unique
+  notes            String?
+  lang             String            @default("hy")
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  hall Hall @relation(fields: [hallId], references: [id])
+  user   User? @relation(fields: [userId], references: [id])
+  userId Int?
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
