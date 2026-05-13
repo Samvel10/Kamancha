@@ -67,7 +67,9 @@ export default function DeliveryPage() {
     return (
       <div className="pt-16 min-h-screen bg-bg flex items-center justify-center">
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-white rounded-2xl shadow-xl p-10 max-w-md w-full text-center">
-          <div className="text-6xl mb-4">🎉</div>
+          <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-accent text-2xl font-bold">✓</span>
+            </div>
           <h2 className="text-2xl font-bold text-primary mb-3">{t('orderSuccess')}</h2>
           <Button onClick={() => setOrderDone(false)} variant="accent" className="mt-4">{t('title')}</Button>
         </motion.div>
@@ -78,7 +80,7 @@ export default function DeliveryPage() {
   return (
     <div className="pt-16 min-h-screen bg-bg">
       <div className="bg-primary py-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-bg mb-3">{t('title')}</h1>
+        <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-3">{t('title')}</h1>
         <p className="text-accent text-lg">{t('subtitle')}</p>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -95,7 +97,7 @@ export default function DeliveryPage() {
                   return (
                     <div key={item.id} className="card p-4 flex items-center gap-4 hover:shadow-md transition-shadow">
                       <div className="w-16 h-16 bg-bg-dark rounded-lg flex items-center justify-center text-2xl shrink-0">
-                        {item.image_url ? <img src={item.image_url} alt={item.name} className="w-full h-full object-cover rounded-lg"/> : '🍽️'}
+                        {item.image_url ? <img src={item.image_url} alt={item.name} className="w-full h-full object-cover rounded-lg"/> : <span className="text-text-secondary/30 text-xs">img</span>}
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className="font-semibold text-primary text-sm truncate">{item.name}</h3>

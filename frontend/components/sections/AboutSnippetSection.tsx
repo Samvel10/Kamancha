@@ -9,7 +9,7 @@ export default function AboutSnippetSection() {
   const locale = useLocale();
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -18,14 +18,20 @@ export default function AboutSnippetSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="section-title">{t('title')}</h2>
-            <p className="section-subtitle">{t('subtitle')}</p>
-            <p className="text-text-main/80 leading-relaxed mb-6">{t('text')}</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">{t('title')}</h2>
+            <p className="text-accent text-lg mb-5">{t('subtitle')}</p>
+            <p className="text-white/70 leading-relaxed mb-8">{t('text')}</p>
             <div className="flex flex-wrap gap-3">
-              <Link href={`/${locale}/about`} className="btn-primary">
+              <Link
+                href={`/${locale}/about`}
+                className="inline-flex items-center px-6 py-3 rounded-lg bg-accent text-white font-semibold hover:bg-accent-dark transition-colors"
+              >
                 {common('learnMore')}
               </Link>
-              <Link href={`/${locale}/booking`} className="btn-outline">
+              <Link
+                href={`/${locale}/booking`}
+                className="inline-flex items-center px-6 py-3 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors"
+              >
                 {common('bookTable')}
               </Link>
             </div>
@@ -36,17 +42,13 @@ export default function AboutSnippetSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative"
           >
-            <div className="bg-bg rounded-2xl p-8 border-l-4 border-accent">
-              <div className="text-8xl mb-4">🎻</div>
-              <blockquote className="text-primary font-medium text-lg italic leading-relaxed">
+            <div className="bg-white/5 rounded-2xl p-8 border-l-4 border-accent">
+              <blockquote className="text-white font-display font-medium text-xl italic leading-relaxed">
                 &ldquo;Every dish we serve carries the soul of our ancestors and the warmth of Armenian hospitality.&rdquo;
               </blockquote>
-              <p className="mt-4 text-accent font-semibold">— Areg Manukyan, Founder</p>
+              <p className="mt-5 text-accent font-semibold">— Areg Manukyan, Founder</p>
             </div>
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/10 rounded-full" />
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-secondary/10 rounded-full" />
           </motion.div>
         </div>
       </div>

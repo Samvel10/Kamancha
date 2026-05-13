@@ -15,6 +15,7 @@ router.get('/', async (req, res, next) => {
     const result = items.map((item) => ({
       id: item._id,
       name: item.name?.[lang] || item.name?.en || item.name?.hy || '',
+      name_hy: item.name?.hy || '',
       description: item.description?.[lang] || item.description?.en || '',
       price: item.price,
       category: item.category,

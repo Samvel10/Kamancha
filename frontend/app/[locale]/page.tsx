@@ -1,7 +1,8 @@
 import HeroSection from '@/components/sections/HeroSection';
-import PopularDishesSection from '@/components/sections/PopularDishesSection';
 import StatsSection from '@/components/sections/StatsSection';
+import PopularDishesSection from '@/components/sections/PopularDishesSection';
 import AboutSnippetSection from '@/components/sections/AboutSnippetSection';
+import MusicSection from '@/components/sections/MusicSection';
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <StatsSection />
       <PopularDishesSection />
       <AboutSnippetSection />
+      <MusicSection />
     </>
   );
 }

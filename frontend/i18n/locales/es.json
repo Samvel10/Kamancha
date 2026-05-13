@@ -43,7 +43,7 @@
     },
     "music": {
       "title": "Música en Vivo Esta Noche",
-      "subtitle": "Cada noche a partir de las 20:00",
+      "subtitle": "Cada noche a partir de las 19:30",
       "countdown": "Comienza en",
       "days": "d",
       "hours": "h",
@@ -61,7 +61,7 @@
       "subtitle": "Un vistazo a nuestro mundo"
     },
     "stats": {
-      "founded": "Fund. 2018",
+      "founded": "Fund. 2019",
       "tripadvisor": "TripAdvisor #3",
       "instagram": "75K Seguidores",
       "tables": "120+ Asientos"
@@ -83,7 +83,7 @@
     "name": "Nombre Completo",
     "namePlaceholder": "Areg Petrosyan",
     "phone": "Número de Teléfono",
-    "phonePlaceholder": "+374 91 000000",
+    "phonePlaceholder": "095 711-700",
     "email": "Correo Electrónico",
     "emailPlaceholder": "tu@email.com",
     "date": "Fecha",
@@ -124,17 +124,17 @@
       "15:00",
       "18:00",
       "19:00",
-      "20:00",
+      "19:30",
       "21:00",
       "22:00"
     ]
   },
   "about": {
     "title": "Sobre Kamancha",
-    "subtitle": "Un hito de Ereván desde 2018",
+    "subtitle": "Un hito de Ereván desde 2019",
     "story": {
       "title": "Nuestra Historia",
-      "text1": "Kamancha abrió sus puertas en 2018 en el corazón de Ereván, en la Calle Tumanyan 23.",
+      "text1": "Kamancha abrió sus puertas en 2019 en el corazón de Ereván, en la Calle Tumanyan 23.",
       "text2": "Estamos orgullosos de ser #3 en TripAdvisor en Ereván."
     },
     "founder": {
@@ -160,8 +160,8 @@
       "cultureDesc": "Celebrando la música, el arte y la tradición armenios"
     },
     "address": "Ereván, Calle Tumanyan 23",
-    "phone": "+374 10 000000",
-    "hours": "Lun–Dom: 12:00 – 24:00"
+    "phone": "+374 95 711700",
+    "hours": "Todos los días: 10:00 – 00:00"
   },
   "gallery": {
     "title": "Galería",

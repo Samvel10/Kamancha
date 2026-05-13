@@ -43,7 +43,7 @@
     },
     "music": {
       "title": "今晚现场音乐",
-      "subtitle": "每晚20:00开始",
+      "subtitle": "每晚19:30开始",
       "countdown": "倒计时",
       "days": "天",
       "hours": "时",
@@ -61,7 +61,7 @@
       "subtitle": "我们世界的一瞥"
     },
     "stats": {
-      "founded": "创立于2018",
+      "founded": "创立于2019",
       "tripadvisor": "TripAdvisor #3",
       "instagram": "75K粉丝",
       "tables": "120+座位"
@@ -83,7 +83,7 @@
     "name": "全名",
     "namePlaceholder": "Areg Petrosyan",
     "phone": "电话号码",
-    "phonePlaceholder": "+374 91 000000",
+    "phonePlaceholder": "095 711-700",
     "email": "电子邮件",
     "emailPlaceholder": "您的@邮箱.com",
     "date": "日期",
@@ -124,17 +124,17 @@
       "15:00",
       "18:00",
       "19:00",
-      "20:00",
+      "19:30",
       "21:00",
       "22:00"
     ]
   },
   "about": {
     "title": "关于卡曼查",
-    "subtitle": "自2018年以来的埃里温地标",
+    "subtitle": "自2019年以来的埃里温地标",
     "story": {
       "title": "我们的故事",
-      "text1": "卡曼查餐厅于2018年在埃里温市中心Tumanyan街23号开业。",
+      "text1": "卡曼查餐厅于2019年在埃里温市中心Tumanyan街23号开业。",
       "text2": "我们为在埃里温TripAdvisor排名第3而自豪。"
     },
     "founder": {
@@ -160,8 +160,8 @@
       "cultureDesc": "庆祝亚美尼亚音乐、艺术和传统"
     },
     "address": "埃里温，Tumanyan街23号",
-    "phone": "+374 10 000000",
-    "hours": "周一至周日：12:00 – 24:00"
+    "phone": "+374 95 711700",
+    "hours": "周一至周日：10:00 – 00:00"
   },
   "gallery": {
     "title": "图库",

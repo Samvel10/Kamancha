@@ -43,7 +43,7 @@
     },
     "music": {
       "title": "Live Music Tonight",
-      "subtitle": "Every evening starting at 20:00",
+      "subtitle": "Every evening starting at 19:30",
       "countdown": "Starts in",
       "days": "days",
       "hours": "hours",
@@ -61,7 +61,7 @@
       "subtitle": "A glimpse into our world"
     },
     "stats": {
-      "founded": "Est. 2018",
+      "founded": "Est. 2019",
       "tripadvisor": "TripAdvisor #3",
       "instagram": "75K Followers",
       "tables": "120+ Seats"
@@ -83,7 +83,7 @@
     "name": "Full Name",
     "namePlaceholder": "Areg Petrosyan",
     "phone": "Phone Number",
-    "phonePlaceholder": "+374 91 000000",
+    "phonePlaceholder": "095 711-700",
     "email": "Email Address",
     "emailPlaceholder": "your@email.com",
     "date": "Date",
@@ -131,10 +131,10 @@
   },
   "about": {
     "title": "About Kamancha",
-    "subtitle": "A Yerevan landmark since 2018",
+    "subtitle": "A Yerevan landmark since 2019",
     "story": {
       "title": "Our Story",
-      "text1": "Kamancha Restaurant opened its doors in 2018 in the vibrant heart of Yerevan, on Tumanyan Street 23. Named after the ancient Armenian string instrument, our restaurant is a celebration of Armenian culture, music, and gastronomy.",
+      "text1": "Kamancha Restaurant opened its doors in 2019 in the vibrant heart of Yerevan, on Tumanyan Street 23. Named after the ancient Armenian string instrument, our restaurant is a celebration of Armenian culture, music, and gastronomy.",
       "text2": "We are proud to be ranked #3 on TripAdvisor in Yerevan, with over 75,000 Instagram followers who join us on our culinary journey. Our chefs use only the finest local ingredients to craft dishes that honor centuries-old Armenian recipes."
     },
     "founder": {
@@ -160,8 +160,8 @@
       "cultureDesc": "Celebrating Armenian music, art, and tradition"
     },
     "address": "Yerevan, Tumanyan Street 23",
-    "phone": "+374 10 000000",
-    "hours": "Mon–Sun: 12:00 – 24:00"
+    "phone": "+374 95 711700",
+    "hours": "Every day: 10:00 – 00:00"
   },
   "gallery": {
     "title": "Gallery",

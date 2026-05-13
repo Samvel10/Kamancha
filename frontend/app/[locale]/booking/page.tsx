@@ -79,7 +79,7 @@ export default function BookingPage() {
   return (
     <div className="pt-16 min-h-screen bg-bg">
       <div className="bg-primary py-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-bg mb-3">{t('title')}</h1>
+        <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-3">{t('title')}</h1>
         <p className="text-accent text-lg">{t('subtitle')}</p>
       </div>
       <div className="max-w-3xl mx-auto px-4 py-12">

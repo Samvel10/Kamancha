@@ -43,7 +43,7 @@
     },
     "music": {
       "title": "Musica dal Vivo Stasera",
-      "subtitle": "Ogni sera dalle 20:00",
+      "subtitle": "Ogni sera dalle 19:30",
       "countdown": "Inizia tra",
       "days": "g",
       "hours": "h",
@@ -61,7 +61,7 @@
       "subtitle": "Uno sguardo al nostro mondo"
     },
     "stats": {
-      "founded": "Fond. 2018",
+      "founded": "Fond. 2019",
       "tripadvisor": "TripAdvisor #3",
       "instagram": "75K Follower",
       "tables": "120+ Posti"
@@ -83,7 +83,7 @@
     "name": "Nome Completo",
     "namePlaceholder": "Areg Petrosyan",
     "phone": "Numero di Telefono",
-    "phonePlaceholder": "+374 91 000000",
+    "phonePlaceholder": "095 711-700",
     "email": "Indirizzo Email",
     "emailPlaceholder": "tua@email.com",
     "date": "Data",
@@ -124,17 +124,17 @@
       "15:00",
       "18:00",
       "19:00",
-      "20:00",
+      "19:30",
       "21:00",
       "22:00"
     ]
   },
   "about": {
     "title": "Chi è Kamancha",
-    "subtitle": "Un punto di riferimento di Yerevan dal 2018",
+    "subtitle": "Un punto di riferimento di Yerevan dal 2019",
     "story": {
       "title": "La Nostra Storia",
-      "text1": "Kamancha ha aperto le sue porte nel 2018 nel cuore di Yerevan, in Via Tumanyan 23.",
+      "text1": "Kamancha ha aperto le sue porte nel 2019 nel cuore di Yerevan, in Via Tumanyan 23.",
       "text2": "Siamo orgogliosi di essere al #3 su TripAdvisor a Yerevan."
     },
     "founder": {
@@ -160,8 +160,8 @@
       "cultureDesc": "Celebrare la musica, l'arte e la tradizione armena"
     },
     "address": "Yerevan, Via Tumanyan 23",
-    "phone": "+374 10 000000",
-    "hours": "Lun–Dom: 12:00 – 24:00"
+    "phone": "+374 95 711700",
+    "hours": "Tutti i giorni: 10:00 – 00:00"
   },
   "gallery": {
     "title": "Galleria",

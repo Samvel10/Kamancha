@@ -43,7 +43,7 @@
     },
     "music": {
       "title": "Live-Musik Heute Abend",
-      "subtitle": "Jeden Abend ab 20:00 Uhr",
+      "subtitle": "Jeden Abend ab 19:30 Uhr",
       "countdown": "Beginnt in",
       "days": "T",
       "hours": "Std",
@@ -61,7 +61,7 @@
       "subtitle": "Ein Einblick in unsere Welt"
     },
     "stats": {
-      "founded": "Gegr. 2018",
+      "founded": "Gegr. 2019",
       "tripadvisor": "TripAdvisor #3",
       "instagram": "75K Follower",
       "tables": "120+ Sitzplätze"
@@ -83,7 +83,7 @@
     "name": "Vollständiger Name",
     "namePlaceholder": "Areg Petrosyan",
     "phone": "Telefonnummer",
-    "phonePlaceholder": "+374 91 000000",
+    "phonePlaceholder": "095 711-700",
     "email": "E-Mail-Adresse",
     "emailPlaceholder": "ihre@email.com",
     "date": "Datum",
@@ -124,17 +124,17 @@
       "15:00",
       "18:00",
       "19:00",
-      "20:00",
+      "19:30",
       "21:00",
       "22:00"
     ]
   },
   "about": {
     "title": "Über Kamancha",
-    "subtitle": "Ein Erewaner Wahrzeichen seit 2018",
+    "subtitle": "Ein Erewaner Wahrzeichen seit 2019",
     "story": {
       "title": "Unsere Geschichte",
-      "text1": "Kamancha öffnete 2018 seine Türen im Herzen Erewans, in der Tumanyan-Straße 23.",
+      "text1": "Kamancha öffnete 2019 seine Türen im Herzen Erewans, in der Tumanyan-Straße 23.",
       "text2": "Wir sind stolz, TripAdvisor #3 in Erevan zu sein."
     },
     "founder": {
@@ -160,8 +160,8 @@
       "cultureDesc": "Feier armenischer Musik, Kunst und Tradition"
     },
     "address": "Erevan, Tumanyan Str. 23",
-    "phone": "+374 10 000000",
-    "hours": "Mo–So: 12:00 – 24:00"
+    "phone": "+374 95 711700",
+    "hours": "Täglich: 10:00 – 00:00"
   },
   "gallery": {
     "title": "Galerie",

@@ -61,7 +61,7 @@
       "subtitle": "Un aperçu de notre monde"
     },
     "stats": {
-      "founded": "Fondé 2018",
+      "founded": "Fondé 2019",
       "tripadvisor": "TripAdvisor #3",
       "instagram": "75K Abonnés",
       "tables": "120+ Places"
@@ -83,7 +83,7 @@
     "name": "Nom Complet",
     "namePlaceholder": "Areg Petrosyan",
     "phone": "Téléphone",
-    "phonePlaceholder": "+374 91 000000",
+    "phonePlaceholder": "095 711-700",
     "email": "Adresse Email",
     "emailPlaceholder": "votre@email.com",
     "date": "Date",
@@ -124,17 +124,17 @@
       "15:00",
       "18:00",
       "19:00",
-      "20:00",
+      "19:30",
       "21:00",
       "22:00"
     ]
   },
   "about": {
     "title": "À Propos de Kamancha",
-    "subtitle": "Un lieu emblématique d'Erevan depuis 2018",
+    "subtitle": "Un lieu emblématique d'Erevan depuis 2019",
     "story": {
       "title": "Notre Histoire",
-      "text1": "Kamancha a ouvert ses portes en 2018 au cœur d'Erevan, rue Toumanyan 23.",
+      "text1": "Kamancha a ouvert ses portes en 2019 au cœur d'Erevan, rue Toumanyan 23.",
       "text2": "Nous sommes fiers d'être classés #3 sur TripAdvisor à Erevan."
     },
     "founder": {
@@ -160,8 +160,8 @@
       "cultureDesc": "Célébrer la musique, l'art et la tradition arméniens"
     },
     "address": "Erevan, rue Toumanyan 23",
-    "phone": "+374 10 000000",
-    "hours": "Lun–Dim: 12:00 – 24:00"
+    "phone": "+374 95 711700",
+    "hours": "Tous les jours: 10:00 – 00:00"
   },
   "gallery": {
     "title": "Galerie",
