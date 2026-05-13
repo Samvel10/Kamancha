@@ -6,21 +6,23 @@ const MenuItem = require('../models/MenuItem');
 const Category = require('../models/Category');
 const GalleryItem = require('../models/GalleryItem');
 const Event = require('../models/Event');
-const { verifyAdmin, generateTokens } = require('../middleware/auth');
+const { verifyAdmin, generateTokens, requireMinRole } = require('../middleware/auth');
+const { requireResource } = require('../middleware/permissions');
 const { validate, loginSchema, menuItemSchema } = require('../middleware/validate');
 const { authLimiter } = require('../middleware/security');
 
-// Admin login
+// Admin login — uses User table, requires role=ADMIN and status=ACTIVE
 router.post('/login', authLimiter, validate(loginSchema), async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    const admin = await prisma.adminUser.findUnique({ where: { email } });
-    if (!admin) return res.status(401).json({ error: 'Invalid credentials' });
+    const admin = await prisma.user.findUnique({ where: { email } });
+    if (!admin || admin.role !== 'ADMIN') return res.status(401).json({ error: 'Invalid credentials' });
+    if (admin.status !== 'ACTIVE') return res.status(403).json({ error: 'Account not active' });
 
     const valid = await bcrypt.compare(password, admin.password);
     if (!valid) return res.status(401).json({ error: 'Invalid credentials' });
 
-    const { accessToken } = generateTokens({ id: admin.id, email: admin.email, role: 'ADMIN' });
+    const { accessToken } = generateTokens({ id: admin.id, email: admin.email, role: admin.role });
     res.json({ accessToken, admin: { id: admin.id, email: admin.email, name: admin.name } });
   } catch (err) {
     next(err);
@@ -28,7 +30,7 @@ router.post('/login', authLimiter, validate(loginSchema), async (req, res, next)
 });
 
 // Reservations management
-router.get('/reservations', verifyAdmin, async (req, res, next) => {
+router.get('/reservations', ...requireResource('reservations', 'view'), async (req, res, next) => {
   try {
     const { status, date, page = 1, limit = 20 } = req.query;
     const where = {};
@@ -52,7 +54,7 @@ router.get('/reservations', verifyAdmin, async (req, res, next) => {
   }
 });
 
-router.patch('/reservations/:id', verifyAdmin, async (req, res, next) => {
+router.patch('/reservations/:id', ...requireResource('reservations', 'edit'), async (req, res, next) => {
   try {
     const { status } = req.body;
     const validStatuses = ['PENDING', 'CONFIRMED', 'CANCELLED', 'COMPLETED'];
@@ -72,7 +74,7 @@ router.patch('/reservations/:id', verifyAdmin, async (req, res, next) => {
 });
 
 // Menu management
-router.post('/menu', verifyAdmin, validate(menuItemSchema), async (req, res, next) => {
+router.post('/menu', ...requireResource('menu', 'edit'), validate(menuItemSchema), async (req, res, next) => {
   try {
     const item = await MenuItem.create(req.body);
     res.status(201).json(item);
@@ -81,7 +83,7 @@ router.post('/menu', verifyAdmin, validate(menuItemSchema), async (req, res, nex
   }
 });
 
-router.put('/menu/:id', verifyAdmin, async (req, res, next) => {
+router.put('/menu/:id', ...requireResource('menu', 'edit'), async (req, res, next) => {
   try {
     const item = await MenuItem.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
     if (!item) return res.status(404).json({ error: 'Menu item not found' });
@@ -91,7 +93,7 @@ router.put('/menu/:id', verifyAdmin, async (req, res, next) => {
   }
 });
 
-router.delete('/menu/:id', verifyAdmin, async (req, res, next) => {
+router.delete('/menu/:id', ...requireResource('menu', 'delete'), async (req, res, next) => {
   try {
     const item = await MenuItem.findByIdAndDelete(req.params.id);
     if (!item) return res.status(404).json({ error: 'Menu item not found' });
@@ -102,7 +104,7 @@ router.delete('/menu/:id', verifyAdmin, async (req, res, next) => {
 });
 
 // Gallery management
-router.get('/gallery', verifyAdmin, async (req, res, next) => {
+router.get('/gallery', ...requireResource('gallery', 'view'), async (req, res, next) => {
   try {
     const items = await GalleryItem.find().sort({ sort_order: 1, createdAt: -1 }).lean();
     res.json({ data: items });
@@ -111,7 +113,7 @@ router.get('/gallery', verifyAdmin, async (req, res, next) => {
   }
 });
 
-router.post('/gallery', verifyAdmin, async (req, res, next) => {
+router.post('/gallery', ...requireResource('gallery', 'edit'), async (req, res, next) => {
   try {
     const item = await GalleryItem.create(req.body);
     res.status(201).json(item);
@@ -120,7 +122,7 @@ router.post('/gallery', verifyAdmin, async (req, res, next) => {
   }
 });
 
-router.delete('/gallery/:id', verifyAdmin, async (req, res, next) => {
+router.delete('/gallery/:id', ...requireResource('gallery', 'delete'), async (req, res, next) => {
   try {
     const item = await GalleryItem.findByIdAndDelete(req.params.id);
     if (!item) return res.status(404).json({ error: 'Gallery item not found' });
@@ -131,7 +133,7 @@ router.delete('/gallery/:id', verifyAdmin, async (req, res, next) => {
 });
 
 // Events management
-router.get('/events', verifyAdmin, async (req, res, next) => {
+router.get('/events', ...requireResource('events', 'view'), async (req, res, next) => {
   try {
     const events = await Event.find().sort({ date: 1 }).lean();
     res.json({ data: events });
@@ -140,7 +142,7 @@ router.get('/events', verifyAdmin, async (req, res, next) => {
   }
 });
 
-router.post('/events', verifyAdmin, async (req, res, next) => {
+router.post('/events', ...requireResource('events', 'edit'), async (req, res, next) => {
   try {
     const event = await Event.create(req.body);
     res.status(201).json(event);
@@ -149,7 +151,7 @@ router.post('/events', verifyAdmin, async (req, res, next) => {
   }
 });
 
-router.delete('/events/:id', verifyAdmin, async (req, res, next) => {
+router.delete('/events/:id', ...requireResource('events', 'delete'), async (req, res, next) => {
   try {
     await Event.findByIdAndDelete(req.params.id);
     res.json({ message: 'Deleted' });
@@ -159,7 +161,7 @@ router.delete('/events/:id', verifyAdmin, async (req, res, next) => {
 });
 
 // Dashboard stats
-router.get('/stats', verifyAdmin, async (req, res, next) => {
+router.get('/stats', ...requireMinRole('DEVELOPER'), async (req, res, next) => {
   try {
     const [totalReservations, pendingReservations, totalMenuItems] = await Promise.all([
       prisma.reservation.count(),

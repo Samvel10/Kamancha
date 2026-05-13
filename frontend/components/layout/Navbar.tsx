@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Globe, ChevronDown, User as UserIcon, ShoppingCart, LogOut, LayoutDashboard } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useAuth } from '@/lib/auth';
+import { useAuth, isStaff } from '@/lib/auth';
 import { useCart } from '@/lib/cart';
 
 const LOCALES = [
@@ -158,6 +158,15 @@ export default function Navbar({ locale }: { locale: string }) {
                     >
                       <LayoutDashboard size={14} /> {tAccount('myAccount')}
                     </Link>
+                    {isStaff(user.role) && (
+                      <Link
+                        href={`/${locale}/staff`}
+                        onClick={() => setUserOpen(false)}
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-text-dark hover:bg-bg transition-colors"
+                      >
+                        <UserIcon size={14} /> Staff
+                      </Link>
+                    )}
                     {user.role === 'ADMIN' && (
                       <Link
                         href={`/${locale}/admin`}

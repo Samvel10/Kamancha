@@ -2,13 +2,21 @@
 import { createContext, useContext, useEffect, useState, useCallback, ReactNode } from 'react';
 import { api } from '@/lib/api';
 
+export type Role = 'USER' | 'DEVELOPER' | 'MANAGER' | 'DIRECTOR' | 'ADMIN';
+export type AccountStatus = 'ACTIVE' | 'SUSPENDED' | 'DELETED';
+
 export interface User {
   id: number;
   email: string;
   name: string;
   phone?: string | null;
-  role: 'USER' | 'ADMIN';
+  role: Role;
+  status?: AccountStatus;
 }
+
+export const RANK: Record<Role, number> = { USER: 1, DEVELOPER: 2, MANAGER: 3, DIRECTOR: 4, ADMIN: 5 };
+export const isStaff = (r?: Role) => !!r && r !== 'USER';
+export const hasMinRole = (r: Role | undefined, min: Role) => (r ? RANK[r] : 0) >= RANK[min];
 
 interface AuthContextValue {
   user: User | null;

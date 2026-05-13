@@ -32,9 +32,10 @@ router.get('/me', verifyToken, async (req, res, next) => {
   try {
     const user = await prisma.user.findUnique({
       where: { id: req.user.id },
-      select: { id: true, email: true, name: true, phone: true, role: true, createdAt: true },
+      select: { id: true, email: true, name: true, phone: true, role: true, status: true, createdAt: true },
     });
     if (!user) return res.status(404).json({ error: 'User not found' });
+    if (user.status !== 'ACTIVE') return res.status(403).json({ error: 'Account ' + user.status.toLowerCase() });
     res.json({ user });
   } catch (err) {
     next(err);
@@ -46,6 +47,8 @@ router.post('/login', authLimiter, validate(loginSchema), async (req, res, next)
     const { email, password } = req.body;
     const user = await prisma.user.findUnique({ where: { email } });
     if (!user) return res.status(401).json({ error: 'Invalid credentials' });
+    if (user.status === 'DELETED') return res.status(401).json({ error: 'Invalid credentials' });
+    if (user.status === 'SUSPENDED') return res.status(403).json({ error: 'Account suspended' });
 
     const valid = await bcrypt.compare(password, user.password);
     if (!valid) return res.status(401).json({ error: 'Invalid credentials' });

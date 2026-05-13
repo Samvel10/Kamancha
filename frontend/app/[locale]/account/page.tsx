@@ -8,16 +8,18 @@ import toast from 'react-hot-toast';
 import {
   User, CalendarDays, ShoppingBag, Heart, ShoppingCart, LogOut,
   Phone, Mail, X, Utensils, Trash2, Plus, Minus, CheckCircle,
+  DollarSign, Star, MessageSquare, Send,
 } from 'lucide-react';
-import { useAuth } from '@/lib/auth';
+import { useAuth, isStaff } from '@/lib/auth';
 import { useCart } from '@/lib/cart';
 import { useFavorites } from '@/lib/favorites';
 import {
   getMyReservations, cancelMyReservation, getMyOrders, updateProfile,
+  getMyKpi, submitFeedback, getMyFeedback,
 } from '@/lib/api';
 import { formatPrice, formatDate, cn } from '@/lib/utils';
 
-type Tab = 'profile' | 'reservations' | 'orders' | 'favorites' | 'cart';
+type Tab = 'profile' | 'reservations' | 'orders' | 'favorites' | 'cart' | 'kpi' | 'feedback';
 
 interface Reservation {
   id: number;
@@ -98,12 +100,15 @@ export default function AccountPage() {
     );
   }
 
-  const tabs: { id: Tab; label: string; Icon: typeof User }[] = [
-    { id: 'profile',      label: t('tabs.profile'),      Icon: User         },
-    { id: 'reservations', label: t('tabs.reservations'), Icon: CalendarDays },
-    { id: 'orders',       label: t('tabs.orders'),       Icon: ShoppingBag  },
-    { id: 'favorites',    label: t('tabs.favorites'),    Icon: Heart        },
-    { id: 'cart',         label: t('tabs.cart'),         Icon: ShoppingCart },
+  const staffMode = isStaff(user.role);
+  const tabs: { id: Tab; label: string; Icon: typeof User; show: boolean }[] = [
+    { id: 'profile',      label: t('tabs.profile'),      Icon: User,         show: true },
+    { id: 'reservations', label: t('tabs.reservations'), Icon: CalendarDays, show: !staffMode },
+    { id: 'orders',       label: t('tabs.orders'),       Icon: ShoppingBag,  show: !staffMode },
+    { id: 'favorites',    label: t('tabs.favorites'),    Icon: Heart,        show: !staffMode },
+    { id: 'cart',         label: t('tabs.cart'),         Icon: ShoppingCart, show: !staffMode },
+    { id: 'kpi',          label: t('tabs.kpi'),          Icon: DollarSign,   show: staffMode },
+    { id: 'feedback',     label: t('tabs.feedback'),     Icon: MessageSquare, show: !staffMode },
   ];
 
   const handleCancel = async (id: number) => {
@@ -148,7 +153,7 @@ export default function AccountPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Tabs */}
         <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
-          {tabs.map(({ id, label, Icon }) => (
+          {tabs.filter((x) => x.show).map(({ id, label, Icon }) => (
             <button
               key={id}
               onClick={() => setTab(id)}
@@ -375,8 +380,161 @@ export default function AccountPage() {
               )}
             </div>
           )}
+
+          {/* KPI (staff only) */}
+          {tab === 'kpi' && <KpiSelfTab />}
+
+          {/* FEEDBACK (customers only) */}
+          {tab === 'feedback' && <FeedbackTab />}
         </motion.div>
       </div>
+    </div>
+  );
+}
+
+interface KpiEntry { id: number; type: 'FINE' | 'BONUS'; amount: number; reason: string; createdAt: string; voided: boolean; issuedBy: { name: string; role: string } }
+interface KpiData { profile: { position?: string; baseSalary?: number; hiredAt?: string } | null; entries: KpiEntry[]; summary: { baseSalary: number; fines: number; bonuses: number; net: number } }
+
+function KpiSelfTab() {
+  const t = useTranslations('account');
+  const [data, setData] = useState<KpiData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getMyKpi().then((res) => setData(res.data)).catch(() => setData(null)).finally(() => setLoading(false));
+  }, []);
+
+  if (loading) return <SkeletonList />;
+  if (!data) return <p className="text-text-faint text-sm py-4">{t('error')}</p>;
+
+  return (
+    <div>
+      <h2 className="font-display text-2xl font-bold text-primary mb-5 flex items-center gap-2">
+        <DollarSign size={22} className="text-accent" />{t('kpiTitle')}
+      </h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+        <div className="rounded-lg p-3 border border-border bg-bg">
+          <p className="text-xs text-text-faint uppercase tracking-wider mb-1">{t('baseSalary')}</p>
+          <p className="font-display font-bold text-xl text-primary">{formatPrice(data.summary.baseSalary)}</p>
+        </div>
+        <div className="rounded-lg p-3 border border-border bg-bg">
+          <p className="text-xs text-text-faint uppercase tracking-wider mb-1">{t('bonuses')}</p>
+          <p className="font-display font-bold text-xl text-green-600">+{formatPrice(data.summary.bonuses)}</p>
+        </div>
+        <div className="rounded-lg p-3 border border-border bg-bg">
+          <p className="text-xs text-text-faint uppercase tracking-wider mb-1">{t('fines')}</p>
+          <p className="font-display font-bold text-xl text-red-600">−{formatPrice(data.summary.fines)}</p>
+        </div>
+        <div className="rounded-lg p-3 border border-accent bg-accent/5">
+          <p className="text-xs text-text-faint uppercase tracking-wider mb-1">{t('netPay')}</p>
+          <p className="font-display font-bold text-xl text-accent">{formatPrice(data.summary.net)}</p>
+        </div>
+      </div>
+
+      <h3 className="font-semibold text-primary mb-2">{t('history')} ({data.entries.length})</h3>
+      {data.entries.length === 0 ? (
+        <p className="text-text-faint text-sm py-4">{t('noKpiEntries')}</p>
+      ) : (
+        <ul className="space-y-2">
+          {data.entries.map((e) => (
+            <li key={e.id} className={cn('border rounded-lg p-3 flex items-center gap-3', e.voided && 'opacity-50 line-through')}>
+              <div className={cn('w-2 h-2 rounded-full', e.type === 'BONUS' ? 'bg-green-500' : 'bg-red-500')} />
+              <div className="flex-1 min-w-0">
+                <p className="font-semibold text-primary">
+                  {e.type === 'BONUS' ? '+' : '−'}{formatPrice(e.amount)} — {e.reason}
+                </p>
+                <p className="text-xs text-text-faint">
+                  {t('issuedBy')} {e.issuedBy.name} ({e.issuedBy.role}) · {new Date(e.createdAt).toLocaleDateString()}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+interface UserFeedback { id: number; rating: number; text: string; approved: boolean; createdAt: string }
+
+function FeedbackTab() {
+  const t = useTranslations('account');
+  const [rating, setRating] = useState(5);
+  const [text, setText] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [mine, setMine] = useState<UserFeedback[]>([]);
+
+  const load = () => getMyFeedback().then((r) => setMine(r.data || [])).catch(() => {});
+  useEffect(() => { load(); }, []);
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (text.length < 5) { toast.error(t('feedbackTooShort')); return; }
+    setBusy(true);
+    try {
+      await submitFeedback(rating, text);
+      toast.success(t('feedbackSent'));
+      setText(''); setRating(5);
+      load();
+    } catch {
+      toast.error(t('error'));
+    } finally { setBusy(false); }
+  };
+
+  return (
+    <div>
+      <h2 className="font-display text-2xl font-bold text-primary mb-5 flex items-center gap-2">
+        <MessageSquare size={22} className="text-accent" />{t('feedbackTitle')}
+      </h2>
+
+      <form onSubmit={submit} className="border border-border rounded-lg p-4 mb-6">
+        <p className="text-sm text-text-secondary mb-3">{t('feedbackPrompt')}</p>
+        <div className="flex items-center gap-1 mb-3">
+          {[1, 2, 3, 4, 5].map((n) => (
+            <button key={n} type="button" onClick={() => setRating(n)}>
+              <Star size={28} className={n <= rating ? 'text-accent' : 'text-text-faint/30'} fill={n <= rating ? 'currentColor' : 'none'} />
+            </button>
+          ))}
+        </div>
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          minLength={5}
+          maxLength={1000}
+          rows={4}
+          placeholder={t('feedbackPlaceholder')}
+          className="input-field resize-none mb-3"
+        />
+        <button type="submit" disabled={busy} className="btn-primary inline-flex items-center gap-2 disabled:opacity-60">
+          <Send size={16} /> {busy ? '…' : t('sendFeedback')}
+        </button>
+      </form>
+
+      <h3 className="font-semibold text-primary mb-2">{t('myFeedback')}</h3>
+      {mine.length === 0 ? (
+        <p className="text-text-faint text-sm py-4">{t('noFeedbackYet')}</p>
+      ) : (
+        <ul className="space-y-2">
+          {mine.map((f) => (
+            <li key={f.id} className="border border-border rounded-lg p-3">
+              <div className="flex items-center justify-between mb-1">
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} size={13} className={i < f.rating ? 'text-accent' : 'text-text-faint/30'} fill={i < f.rating ? 'currentColor' : 'none'} />
+                  ))}
+                </div>
+                {f.approved ? (
+                  <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">{t('approved')}</span>
+                ) : (
+                  <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-semibold">{t('pending')}</span>
+                )}
+              </div>
+              <p className="text-sm text-text-dark">{f.text}</p>
+              <p className="text-xs text-text-faint mt-1">{new Date(f.createdAt).toLocaleDateString()}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

@@ -158,3 +158,92 @@ export async function updateProfile(data: { name?: string; phone?: string; passw
   const res = await api.patch('/api/users/me', data, { headers: authHeaders() });
   return res.data;
 }
+
+// ── Staff / role administration ─────────────────────────────────────────────
+export async function listStaffUsers(filters: { role?: string; status?: string } = {}) {
+  const res = await api.get('/api/staff/users', { headers: authHeaders(), params: filters });
+  return res.data;
+}
+
+export async function getStaffUser(id: number) {
+  const res = await api.get(`/api/staff/users/${id}`, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function createStaffUser(data: {
+  email: string; name: string; phone?: string; role: string;
+  baseSalary?: number; position?: string;
+}) {
+  const res = await api.post('/api/staff/users', data, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function updateStaffUser(id: number, data: {
+  status?: string; name?: string; phone?: string; baseSalary?: number; position?: string;
+}) {
+  const res = await api.patch(`/api/staff/users/${id}`, data, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function deleteStaffUser(id: number) {
+  const res = await api.delete(`/api/staff/users/${id}`, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function getUserPermissions(id: number) {
+  const res = await api.get(`/api/staff/users/${id}/permissions`, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function setUserPermissions(id: number, permissions: Array<{
+  resource: string; canView: boolean; canEdit: boolean; canDelete: boolean;
+}>) {
+  const res = await api.put(`/api/staff/users/${id}/permissions`, { permissions }, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function getMyKpi() {
+  const res = await api.get('/api/staff/me/kpi', { headers: authHeaders() });
+  return res.data;
+}
+
+export async function getUserKpi(id: number) {
+  const res = await api.get(`/api/staff/users/${id}/kpi`, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function addKpiEntry(id: number, entry: { type: 'FINE' | 'BONUS'; amount: number; reason: string }) {
+  const res = await api.post(`/api/staff/users/${id}/kpi`, entry, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function voidKpiEntry(entryId: number) {
+  const res = await api.patch(`/api/staff/kpi/${entryId}/void`, {}, { headers: authHeaders() });
+  return res.data;
+}
+
+// ── Feedback ────────────────────────────────────────────────────────────────
+export async function submitFeedback(rating: number, text: string) {
+  const res = await api.post('/api/feedback', { rating, text }, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function getMyFeedback() {
+  const res = await api.get('/api/feedback/me', { headers: authHeaders() });
+  return res.data;
+}
+
+export async function getFeedbackModeration() {
+  const res = await api.get('/api/feedback/moderation', { headers: authHeaders() });
+  return res.data;
+}
+
+export async function approveFeedback(id: number) {
+  const res = await api.patch(`/api/feedback/${id}/approve`, {}, { headers: authHeaders() });
+  return res.data;
+}
+
+export async function deleteFeedback(id: number) {
+  const res = await api.delete(`/api/feedback/${id}`, { headers: authHeaders() });
+  return res.data;
+}

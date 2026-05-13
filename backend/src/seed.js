@@ -21,13 +21,13 @@ async function seed() {
     await prisma.hall.upsert({ where: { id: hall.id }, create: hall, update: hall });
   }
 
-  // ── PostgreSQL: Admin user ─────────────────────────────────────────────────
+  // ── PostgreSQL: Admin user (User table, role=ADMIN) ───────────────────────
   const bcrypt = require('bcryptjs');
   const adminPassword = await bcrypt.hash('Admin@Kamancha2024', 12);
-  await prisma.adminUser.upsert({
+  await prisma.user.upsert({
     where: { email: 'admin@kamancha.am' },
-    create: { email: 'admin@kamancha.am', name: 'Admin', password: adminPassword },
-    update: {},
+    create: { email: 'admin@kamancha.am', name: 'Admin', password: adminPassword, role: 'ADMIN', status: 'ACTIVE' },
+    update: { role: 'ADMIN', status: 'ACTIVE' },
   });
 
   // ── MongoDB: Categories ────────────────────────────────────────────────────

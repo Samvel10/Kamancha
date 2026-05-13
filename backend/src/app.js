@@ -18,6 +18,8 @@ const reviewRoutes = require('./routes/reviews');
 const galleryRoutes = require('./routes/gallery');
 const eventRoutes = require('./routes/events');
 const userRoutes = require('./routes/users');
+const staffRoutes = require('./routes/staff');
+const feedbackRoutes = require('./routes/feedback');
 
 const app = express();
 
@@ -46,6 +48,8 @@ app.use('/api/reviews', reviewRoutes);
 app.use('/api/gallery', galleryRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/staff', staffRoutes);
+app.use('/api/feedback', feedbackRoutes);
 
 app.use((req, res) => res.status(404).json({ error: 'Not found' }));
 
