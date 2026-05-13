@@ -4,9 +4,9 @@ const { prisma } = require('../src/config/db');
 
 beforeAll(async () => {
   await prisma.$connect();
-  // Clean test data
-  await prisma.reservation.deleteMany({});
-  await prisma.hall.deleteMany({});
+  // Clean test data (scoped to test hall only)
+  await prisma.reservation.deleteMany({ where: { hallId: 99 } });
+  await prisma.hall.deleteMany({ where: { id: 99 } });
   await prisma.hall.create({
     data: { id: 99, name: 'Test Hall', nameHy: 'Փ-ո-ր-ձ-ա-ր-կ-ո-ւ-մ', capacity: 50 },
   });
