@@ -30,6 +30,38 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.get('/item/:id', async (req, res, next) => {
+  try {
+    const { lang = 'en' } = req.query;
+    const mongoose = require('mongoose');
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(404).json({ error: 'Not found' });
+    }
+    const item = await MenuItem.findById(req.params.id).lean();
+    if (!item) return res.status(404).json({ error: 'Not found' });
+    res.json({
+      data: {
+        id: item._id,
+        name: item.name?.[lang] || item.name?.en || item.name?.hy || '',
+        name_hy: item.name?.hy || '',
+        name_en: item.name?.en || '',
+        name_ru: item.name?.ru || '',
+        description: item.description?.[lang] || item.description?.en || '',
+        description_hy: item.description?.hy || '',
+        description_en: item.description?.en || '',
+        price: item.price,
+        category: item.category,
+        image_url: item.image_url,
+        is_available: item.is_available,
+        is_popular: item.is_popular,
+        tags: item.tags || [],
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get('/categories', async (req, res, next) => {
   try {
     const { lang = 'en' } = req.query;

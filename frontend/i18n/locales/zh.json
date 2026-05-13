@@ -27,7 +27,9 @@
     "guests": "位客人",
     "available": "可用",
     "unavailable": "不可用",
-    "seeAll": "查看全部"
+    "seeAll": "查看全部",
+    "orderNow": "立即订购",
+    "viewDetails": "查看详情"
   },
   "home": {
     "hero": {

@@ -27,7 +27,9 @@
     "guests": "ضيوف",
     "available": "متاح",
     "unavailable": "غير متاح",
-    "seeAll": "عرض الكل"
+    "seeAll": "عرض الكل",
+    "orderNow": "اطلب الآن",
+    "viewDetails": "عرض التفاصيل"
   },
   "home": {
     "hero": {

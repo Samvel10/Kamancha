@@ -27,7 +27,9 @@
     "guests": "հյուր",
     "available": "Ազատ է",
     "unavailable": "Զբաղված",
-    "seeAll": "Տեսնել բոլոր"
+    "seeAll": "Տեսնել բոլոր",
+    "orderNow": "Պատվիրել",
+    "viewDetails": "Մանրամասներ"
   },
   "home": {
     "hero": {

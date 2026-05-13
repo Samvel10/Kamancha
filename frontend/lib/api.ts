@@ -20,6 +20,11 @@ export async function getCategories(lang = 'en') {
   return res.data;
 }
 
+export async function getMenuItem(id: string, lang = 'en') {
+  const res = await api.get(`/api/menu/item/${id}`, { params: { lang } });
+  return res.data;
+}
+
 export async function createReservation(data: {
   name: string; phone: string; email: string;
   date: string; time: string; guests: number;

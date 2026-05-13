@@ -27,7 +27,9 @@
     "guests": "मेहमान",
     "available": "उपलब्ध",
     "unavailable": "अनुपलब्ध",
-    "seeAll": "सभी देखें"
+    "seeAll": "सभी देखें",
+    "orderNow": "अभी ऑर्डर करें",
+    "viewDetails": "विवरण देखें"
   },
   "home": {
     "hero": {

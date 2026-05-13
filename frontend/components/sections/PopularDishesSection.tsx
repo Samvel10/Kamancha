@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { getMenu } from '@/lib/api';
 import { formatPrice } from '@/lib/utils';
 import { Utensils } from 'lucide-react';
+import MenuItemModal from '@/components/menu/MenuItemModal';
 
 interface MenuItem {
   id: string;
@@ -24,6 +25,7 @@ export default function PopularDishesSection() {
   const locale = useLocale();
   const [items, setItems] = useState<MenuItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [openItemId, setOpenItemId] = useState<string | null>(null);
 
   useEffect(() => {
     getMenu(locale, undefined)
@@ -58,13 +60,15 @@ export default function PopularDishesSection() {
         ) : items.length === 0 ? null : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {items.map((item, i) => (
-              <motion.div
+              <motion.button
                 key={item.id}
+                type="button"
+                onClick={() => setOpenItemId(item.id)}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="bg-white rounded-lg border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white rounded-lg border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow text-left w-full focus:outline-none focus:ring-2 focus:ring-accent/40"
               >
                 <div
                   className="bg-green-border flex items-center justify-center overflow-hidden"
@@ -100,15 +104,12 @@ export default function PopularDishesSection() {
                     >
                       {formatPrice(item.price)}
                     </span>
-                    <Link
-                      href={`/${locale}/menu`}
-                      className="text-primary text-xs font-semibold uppercase tracking-wider hover:text-accent transition-colors"
-                    >
-                      {common('viewMenu')} →
-                    </Link>
+                    <span className="text-primary text-xs font-semibold uppercase tracking-wider">
+                      {common('viewDetails')} →
+                    </span>
                   </div>
                 </div>
-              </motion.div>
+              </motion.button>
             ))}
           </div>
         )}
@@ -119,6 +120,8 @@ export default function PopularDishesSection() {
           </Link>
         </div>
       </div>
+
+      <MenuItemModal itemId={openItemId} onClose={() => setOpenItemId(null)} />
     </section>
   );
 }

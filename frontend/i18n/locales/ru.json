@@ -27,7 +27,9 @@
     "guests": "гостей",
     "available": "Доступно",
     "unavailable": "Занято",
-    "seeAll": "Смотреть все"
+    "seeAll": "Смотреть все",
+    "orderNow": "Заказать",
+    "viewDetails": "Подробнее"
   },
   "home": {
     "hero": {

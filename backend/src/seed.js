@@ -31,6 +31,7 @@ async function seed() {
   });
 
   // ── MongoDB: Categories ────────────────────────────────────────────────────
+  await Category.deleteMany({});
   const categories = [
     { slug: 'breakfast',         name: { hy: 'Նախաճաշ',             en: 'Breakfast',         ru: 'Завтрак'              }, icon: '🍳', sort_order: 1  },
     { slug: 'cold-appetizers',   name: { hy: 'Սառը Նախուտեստ',      en: 'Cold Appetizers',   ru: 'Холодные закуски'    }, icon: '🧀', sort_order: 2  },

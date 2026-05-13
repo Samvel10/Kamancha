@@ -27,7 +27,9 @@
     "guests": "Gäste",
     "available": "Verfügbar",
     "unavailable": "Nicht verfügbar",
-    "seeAll": "Alle ansehen"
+    "seeAll": "Alle ansehen",
+    "orderNow": "Bestellen",
+    "viewDetails": "Details ansehen"
   },
   "home": {
     "hero": {
