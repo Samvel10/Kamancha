@@ -1,14 +1,269 @@
 {
-  "nav": { "home": "होम", "menu": "मेनू", "booking": "बुकिंग", "about": "हमारे बारे में", "gallery": "गैलरी", "events": "इवेंट्स", "reviews": "समीक्षाएं", "delivery": "डिलीवरी", "admin": "एडमिन" },
-  "common": { "bookTable": "टेबल बुक करें", "viewMenu": "मेनू देखें", "learnMore": "और जानें", "loading": "लोड हो रहा है...", "error": "कुछ गलत हो गया", "close": "बंद करें", "submit": "जमा करें", "cancel": "रद्द करें", "search": "खोजें", "filter": "फ़िल्टर", "all": "सभी", "amd": "AMD", "perPerson": "प्रति व्यक्ति", "guests": "मेहमान", "available": "उपलब्ध", "unavailable": "अनुपलब्ध", "seeAll": "सभी देखें" },
-  "home": { "hero": { "title": "कमांचा रेस्टोरेंट", "subtitle": "येरेवान के दिल में प्रामाणिक आर्मेनियाई व्यंजन", "description": "TripAdvisor येरेवान #3 · हर शाम लाइव संगीत · Tumanyan 23", "cta": "अपनी टेबल बुक करें", "ctaMenu": "मेनू देखें" }, "popular": { "title": "हमारे सिग्नेचर व्यंजन", "subtitle": "पीढ़ी दर पीढ़ी चली आ रही प्रिय रेसिपी" }, "music": { "title": "आज रात लाइव संगीत", "subtitle": "हर शाम 20:00 बजे से", "countdown": "शुरू होता है", "days": "दिन", "hours": "घंटे", "minutes": "मिनट", "seconds": "सेकंड", "liveNow": "अभी लाइव!" }, "about": { "title": "हमारी कहानी", "subtitle": "आर्मेनियाई पाक विरासत के प्रति प्रेम से जन्मी", "text": "कमांचा सिर्फ एक रेस्टोरेंट नहीं है — यह आर्मेनियाई संस्कृति, स्वाद और आतिथ्य की समृद्ध दुनिया की यात्रा है।" }, "gallery": { "title": "कमांचा के पल", "subtitle": "हमारी दुनिया की एक झलक" }, "stats": { "founded": "स्था. 2018", "tripadvisor": "TripAdvisor #3", "instagram": "75K फॉलोअर्स", "tables": "120+ सीटें" } },
-  "menu": { "title": "हमारा मेनू", "subtitle": "आधुनिक स्पर्श के साथ प्रामाणिक आर्मेनियाई व्यंजन", "search": "व्यंजन खोजें...", "allCategories": "सभी", "noResults": "कोई व्यंजन नहीं मिला", "popular": "लोकप्रिय", "unavailable": "वर्तमान में अनुपलब्ध", "currency": "AMD" },
-  "booking": { "title": "टेबल बुक करें", "subtitle": "हम आपका स्वागत करने के लिए उत्सुक हैं", "name": "पूरा नाम", "namePlaceholder": "Areg Petrosyan", "phone": "फोन नंबर", "phonePlaceholder": "+374 91 000000", "email": "ईमेल पता", "emailPlaceholder": "आपका@ईमेल.com", "date": "तारीख", "time": "समय", "guests": "मेहमानों की संख्या", "hall": "हॉल चुनें", "selectHall": "एक हॉल चुनें", "notes": "विशेष अनुरोध", "notesPlaceholder": "एलर्जी, जन्मदिन, सालगिरह...", "submit": "अभी बुक करें", "checkAvailability": "उपलब्धता जांचें", "available": "यह स्लॉट उपलब्ध है", "unavailable": "यह स्लॉट लिया जा चुका है", "success": { "title": "बुकिंग पुष्टि हो गई!", "text": "आपका पुष्टि कोड है:", "note": "आपके पते पर एक पुष्टि ईमेल भेजा गया है।" }, "error": "बुकिंग विफल। कृपया पुनः प्रयास करें।", "halls": { "1": { "name": "मुख्य हॉल", "desc": "80 सीटें · लाइव म्यूजिक स्टेज" }, "2": { "name": "गार्डन टेरेस", "desc": "40 सीटें · खुली छत" }, "3": { "name": "प्राइवेट रूम", "desc": "20 सीटें · अंतरंग" } }, "timeSlots": ["12:00","13:00","14:00","15:00","18:00","19:00","20:00","21:00","22:00"] },
-  "about": { "title": "कमांचा के बारे में", "subtitle": "2018 से येरेवान का एक प्रसिद्ध स्थान", "story": { "title": "हमारी कहानी", "text1": "कमांचा रेस्टोरेंट ने 2018 में येरेवान के केंद्र में, Tumanyan Street 23 पर अपने दरवाजे खोले।", "text2": "हमें येरेवान में TripAdvisor #3 होने पर गर्व है।" }, "founder": { "title": "संस्थापक से मिलें", "name": "Areg Manukyan", "role": "संस्थापक और हेड शेफ", "bio": "Areg, @restormania के नाम से जाने जाते हैं, एक जुनूनी पाक कला कलाकार हैं।", "instagram": "@restormania" }, "team": { "title": "हमारी टीम", "subtitle": "वे लोग जो कमांचा को खास बनाते हैं" }, "values": { "title": "हमारे मूल्य", "authenticity": "प्रामाणिक रेसिपी", "authenticityDesc": "हर व्यंजन पारंपरिक आर्मेनियाई रेसिपी से बनाया गया है", "quality": "उत्कृष्ट गुणवत्ता", "qualityDesc": "केवल सर्वोत्तम स्थानीय सामग्री", "hospitality": "गर्म आतिथ्य", "hospitalityDesc": "कमांचा में हर मेहमान परिवार है", "culture": "सांस्कृतिक विरासत", "cultureDesc": "आर्मेनियाई संगीत, कला और परंपरा का उत्सव" }, "address": "येरेवान, Tumanyan Street 23", "phone": "+374 10 000000", "hours": "सोम–रवि: 12:00 – 24:00" },
-  "gallery": { "title": "गैलरी", "subtitle": "कमांचा में जीवन", "filter": { "all": "सभी", "food": "भोजन", "interior": "इंटीरियर", "events": "इवेंट्स", "team": "टीम" }, "noImages": "इस श्रेणी में अभी कोई छवि नहीं है" },
-  "events": { "title": "इवेंट्स", "subtitle": "लाइव संगीत और विशेष शाम", "upcoming": "आगामी इवेंट्स", "noEvents": "अभी कोई इवेंट नहीं", "types": { "music": "लाइव संगीत", "special": "विशेष शाम", "holiday": "छुट्टी", "other": "इवेंट" }, "bookForEvent": "इस इवेंट के लिए बुक करें" },
-  "reviews": { "title": "अतिथि समीक्षाएं", "subtitle": "हमारे मेहमान क्या कहते हैं", "avgRating": "औसत रेटिंग", "sources": { "all": "सभी स्रोत", "tripadvisor": "TripAdvisor", "google": "Google", "internal": "प्रत्यक्ष" }, "noReviews": "अभी कोई समीक्षा नहीं", "tripAdvisorRank": "TripAdvisor येरेवान #3" },
-  "delivery": { "title": "डिलीवरी ऑर्डर", "subtitle": "कमांचा आपके दरवाजे पर", "cart": "आपकी कार्ट", "cartEmpty": "आपकी कार्ट खाली है", "addToCart": "कार्ट में जोड़ें", "removeFromCart": "हटाएं", "quantity": "मात्रा", "total": "कुल", "checkout": "चेकआउट", "orderSuccess": "ऑर्डर सफलतापूर्वक दिया गया!", "orderError": "ऑर्डर विफल।", "address": "डिलीवरी पता", "addressPlaceholder": "अपना पता दर्ज करें", "deliveryFee": "डिलीवरी शुल्क", "free": "मुफ्त", "minOrder": "न्यूनतम ऑर्डर: 5,000 AMD", "form": { "name": "नाम", "phone": "फोन", "address": "पता", "submit": "ऑर्डर दें" } },
-  "admin": { "dashboard": "डैशबोर्ड", "login": "एडमिन लॉगिन", "logout": "लॉगआउट", "reservations": "बुकिंग", "menu": "मेनू", "gallery": "गैलरी", "events": "इवेंट्स", "stats": { "total": "कुल बुकिंग", "pending": "लंबित", "menuItems": "मेनू आइटम" }, "status": { "PENDING": "लंबित", "CONFIRMED": "पुष्टि", "CANCELLED": "रद्द", "COMPLETED": "पूर्ण" }, "actions": { "confirm": "पुष्टि करें", "cancel": "रद्द करें", "complete": "पूर्ण करें", "delete": "हटाएं", "add": "जोड़ें", "edit": "संपादित करें", "save": "सहेजें" } },
-  "footer": { "address": "येरेवान, Tumanyan 23", "phone": "+374 10 000000", "email": "info@kamancha.am", "hours": "सोम–रवि: 12:00 – 24:00", "social": "हमें फॉलो करें", "rights": "सर्वाधिकार सुरक्षित", "links": { "privacy": "गोपनीयता नीति", "terms": "नियम" } }
+  "nav": {
+    "home": "होम",
+    "menu": "मेनू",
+    "booking": "बुकिंग",
+    "about": "हमारे बारे में",
+    "gallery": "गैलरी",
+    "events": "इवेंट्स",
+    "reviews": "समीक्षाएं",
+    "delivery": "डिलीवरी",
+    "admin": "एडमिन"
+  },
+  "common": {
+    "bookTable": "टेबल बुक करें",
+    "viewMenu": "मेनू देखें",
+    "learnMore": "और जानें",
+    "loading": "लोड हो रहा है...",
+    "error": "कुछ गलत हो गया",
+    "close": "बंद करें",
+    "submit": "जमा करें",
+    "cancel": "रद्द करें",
+    "search": "खोजें",
+    "filter": "फ़िल्टर",
+    "all": "सभी",
+    "amd": "AMD",
+    "perPerson": "प्रति व्यक्ति",
+    "guests": "मेहमान",
+    "available": "उपलब्ध",
+    "unavailable": "अनुपलब्ध",
+    "seeAll": "सभी देखें"
+  },
+  "home": {
+    "hero": {
+      "title": "कमांचा रेस्टोरेंट",
+      "subtitle": "येरेवान के दिल में प्रामाणिक आर्मेनियाई व्यंजन",
+      "description": "TripAdvisor येरेवान #3 · हर शाम लाइव संगीत · Tumanyan 23",
+      "cta": "अपनी टेबल बुक करें",
+      "ctaMenu": "मेनू देखें"
+    },
+    "popular": {
+      "title": "हमारे सिग्नेचर व्यंजन",
+      "subtitle": "पीढ़ी दर पीढ़ी चली आ रही प्रिय रेसिपी"
+    },
+    "music": {
+      "title": "आज रात लाइव संगीत",
+      "subtitle": "हर शाम 20:00 बजे से",
+      "countdown": "शुरू होता है",
+      "days": "दिन",
+      "hours": "घंटे",
+      "minutes": "मिनट",
+      "seconds": "सेकंड",
+      "liveNow": "अभी लाइव!"
+    },
+    "about": {
+      "title": "हमारी कहानी",
+      "subtitle": "आर्मेनियाई पाक विरासत के प्रति प्रेम से जन्मी",
+      "text": "कमांचा सिर्फ एक रेस्टोरेंट नहीं है — यह आर्मेनियाई संस्कृति, स्वाद और आतिथ्य की समृद्ध दुनिया की यात्रा है।"
+    },
+    "gallery": {
+      "title": "कमांचा के पल",
+      "subtitle": "हमारी दुनिया की एक झलक"
+    },
+    "stats": {
+      "founded": "स्था. 2018",
+      "tripadvisor": "TripAdvisor #3",
+      "instagram": "75K फॉलोअर्स",
+      "tables": "120+ सीटें"
+    }
+  },
+  "menu": {
+    "title": "हमारा मेनू",
+    "subtitle": "आधुनिक स्पर्श के साथ प्रामाणिक आर्मेनियाई व्यंजन",
+    "search": "व्यंजन खोजें...",
+    "allCategories": "सभी",
+    "noResults": "कोई व्यंजन नहीं मिला",
+    "popular": "लोकप्रिय",
+    "unavailable": "वर्तमान में अनुपलब्ध",
+    "currency": "AMD"
+  },
+  "booking": {
+    "title": "टेबल बुक करें",
+    "subtitle": "हम आपका स्वागत करने के लिए उत्सुक हैं",
+    "name": "पूरा नाम",
+    "namePlaceholder": "Areg Petrosyan",
+    "phone": "फोन नंबर",
+    "phonePlaceholder": "+374 91 000000",
+    "email": "ईमेल पता",
+    "emailPlaceholder": "आपका@ईमेल.com",
+    "date": "तारीख",
+    "time": "समय",
+    "guests": "मेहमानों की संख्या",
+    "hall": "हॉल चुनें",
+    "selectHall": "एक हॉल चुनें",
+    "notes": "विशेष अनुरोध",
+    "notesPlaceholder": "एलर्जी, जन्मदिन, सालगिरह...",
+    "submit": "अभी बुक करें",
+    "checkAvailability": "उपलब्धता जांचें",
+    "available": "यह स्लॉट उपलब्ध है",
+    "unavailable": "यह स्लॉट लिया जा चुका है",
+    "success": {
+      "title": "बुकिंग पुष्टि हो गई!",
+      "text": "आपका पुष्टि कोड है:",
+      "note": "आपके पते पर एक पुष्टि ईमेल भेजा गया है।"
+    },
+    "error": "बुकिंग विफल। कृपया पुनः प्रयास करें।",
+    "halls": {
+      "1": {
+        "name": "मुख्य हॉल",
+        "desc": "80 सीटें · लाइव म्यूजिक स्टेज"
+      },
+      "2": {
+        "name": "गार्डन टेरेस",
+        "desc": "40 सीटें · खुली छत"
+      },
+      "3": {
+        "name": "प्राइवेट रूम",
+        "desc": "20 सीटें · अंतरंग"
+      }
+    },
+    "timeSlots": [
+      "12:00",
+      "13:00",
+      "14:00",
+      "15:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00"
+    ]
+  },
+  "about": {
+    "title": "कमांचा के बारे में",
+    "subtitle": "2018 से येरेवान का एक प्रसिद्ध स्थान",
+    "story": {
+      "title": "हमारी कहानी",
+      "text1": "कमांचा रेस्टोरेंट ने 2018 में येरेवान के केंद्र में, Tumanyan Street 23 पर अपने दरवाजे खोले।",
+      "text2": "हमें येरेवान में TripAdvisor #3 होने पर गर्व है।"
+    },
+    "founder": {
+      "title": "संस्थापक से मिलें",
+      "name": "Areg Manukyan",
+      "role": "संस्थापक और हेड शेफ",
+      "bio": "Areg, @restormania के नाम से जाने जाते हैं, एक जुनूनी पाक कला कलाकार हैं।",
+      "instagram": "@restormania"
+    },
+    "team": {
+      "title": "हमारी टीम",
+      "subtitle": "वे लोग जो कमांचा को खास बनाते हैं"
+    },
+    "values": {
+      "title": "हमारे मूल्य",
+      "authenticity": "प्रामाणिक रेसिपी",
+      "authenticityDesc": "हर व्यंजन पारंपरिक आर्मेनियाई रेसिपी से बनाया गया है",
+      "quality": "उत्कृष्ट गुणवत्ता",
+      "qualityDesc": "केवल सर्वोत्तम स्थानीय सामग्री",
+      "hospitality": "गर्म आतिथ्य",
+      "hospitalityDesc": "कमांचा में हर मेहमान परिवार है",
+      "culture": "सांस्कृतिक विरासत",
+      "cultureDesc": "आर्मेनियाई संगीत, कला और परंपरा का उत्सव"
+    },
+    "address": "येरेवान, Tumanyan Street 23",
+    "phone": "+374 10 000000",
+    "hours": "सोम–रवि: 12:00 – 24:00"
+  },
+  "gallery": {
+    "title": "गैलरी",
+    "subtitle": "कमांचा में जीवन",
+    "filter": {
+      "all": "सभी",
+      "food": "भोजन",
+      "interior": "इंटीरियर",
+      "events": "इवेंट्स",
+      "team": "टीम"
+    },
+    "noImages": "इस श्रेणी में अभी कोई छवि नहीं है"
+  },
+  "events": {
+    "title": "इवेंट्स",
+    "subtitle": "लाइव संगीत और विशेष शाम",
+    "upcoming": "आगामी इवेंट्स",
+    "noEvents": "अभी कोई इवेंट नहीं",
+    "types": {
+      "music": "लाइव संगीत",
+      "special": "विशेष शाम",
+      "holiday": "छुट्टी",
+      "other": "इवेंट"
+    },
+    "bookForEvent": "इस इवेंट के लिए बुक करें"
+  },
+  "reviews": {
+    "title": "अतिथि समीक्षाएं",
+    "subtitle": "हमारे मेहमान क्या कहते हैं",
+    "avgRating": "औसत रेटिंग",
+    "sources": {
+      "all": "सभी स्रोत",
+      "tripadvisor": "TripAdvisor",
+      "google": "Google",
+      "internal": "प्रत्यक्ष"
+    },
+    "noReviews": "अभी कोई समीक्षा नहीं",
+    "tripAdvisorRank": "TripAdvisor येरेवान #3"
+  },
+  "delivery": {
+    "title": "डिलीवरी ऑर्डर",
+    "subtitle": "कमांचा आपके दरवाजे पर",
+    "cart": "आपकी कार्ट",
+    "cartEmpty": "आपकी कार्ट खाली है",
+    "addToCart": "कार्ट में जोड़ें",
+    "removeFromCart": "हटाएं",
+    "quantity": "मात्रा",
+    "total": "कुल",
+    "checkout": "चेकआउट",
+    "orderSuccess": "ऑर्डर सफलतापूर्वक दिया गया!",
+    "orderError": "ऑर्डर विफल।",
+    "address": "डिलीवरी पता",
+    "addressPlaceholder": "अपना पता दर्ज करें",
+    "deliveryFee": "डिलीवरी शुल्क",
+    "free": "मुफ्त",
+    "minOrder": "न्यूनतम ऑर्डर: 5,000 AMD",
+    "form": {
+      "name": "नाम",
+      "phone": "फोन",
+      "address": "पता",
+      "submit": "ऑर्डर दें"
+    }
+  },
+  "admin": {
+    "dashboard": "डैशबोर्ड",
+    "login": "एडमिन लॉगिन",
+    "logout": "लॉगआउट",
+    "reservations": "बुकिंग",
+    "menu": "मेनू",
+    "gallery": "गैलरी",
+    "events": "इवेंट्स",
+    "stats": {
+      "total": "कुल बुकिंग",
+      "pending": "लंबित",
+      "menuItems": "मेनू आइटम"
+    },
+    "status": {
+      "PENDING": "लंबित",
+      "CONFIRMED": "पुष्टि",
+      "CANCELLED": "रद्द",
+      "COMPLETED": "पूर्ण"
+    },
+    "actions": {
+      "confirm": "पुष्टि करें",
+      "cancel": "रद्द करें",
+      "complete": "पूर्ण करें",
+      "delete": "हटाएं",
+      "add": "जोड़ें",
+      "edit": "संपादित करें",
+      "save": "सहेजें"
+    }
+  },
+  "footer": {
+    "address": "येरेवान, Tumanyan 23",
+    "phone": "+374 95 711700",
+    "email": "info@kamancha.am",
+    "hours": "प्रतिदिन: 10:00 – 00:00",
+    "social": "हमें फॉलो करें",
+    "rights": "सर्वाधिकार सुरक्षित",
+    "links": {
+      "privacy": "गोपनीयता नीति",
+      "terms": "नियम"
+    }
+  }
 }

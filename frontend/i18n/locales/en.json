@@ -117,7 +117,17 @@
         "desc": "20 seats · Intimate · Ideal for private events"
       }
     },
-    "timeSlots": ["12:00", "13:00", "14:00", "15:00", "18:00", "19:00", "20:00", "21:00", "22:00"]
+    "timeSlots": [
+      "12:00",
+      "13:00",
+      "14:00",
+      "15:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00"
+    ]
   },
   "about": {
     "title": "About Kamancha",
@@ -246,9 +256,9 @@
   },
   "footer": {
     "address": "Yerevan, Tumanyan 23",
-    "phone": "+374 10 000000",
+    "phone": "+374 95 711700",
     "email": "info@kamancha.am",
-    "hours": "Mon–Sun: 12:00 – 24:00",
+    "hours": "Every day: 10:00 – 00:00",
     "social": "Follow Us",
     "rights": "All rights reserved",
     "links": {

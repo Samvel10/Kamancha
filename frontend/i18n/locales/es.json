@@ -1,14 +1,269 @@
 {
-  "nav": { "home": "Inicio", "menu": "Menú", "booking": "Reserva", "about": "Nosotros", "gallery": "Galería", "events": "Eventos", "reviews": "Reseñas", "delivery": "Entrega", "admin": "Admin" },
-  "common": { "bookTable": "Reservar Mesa", "viewMenu": "Ver Menú", "learnMore": "Más información", "loading": "Cargando...", "error": "Algo salió mal", "close": "Cerrar", "submit": "Enviar", "cancel": "Cancelar", "search": "Buscar", "filter": "Filtro", "all": "Todos", "amd": "AMD", "perPerson": "por persona", "guests": "huéspedes", "available": "Disponible", "unavailable": "No disponible", "seeAll": "Ver todo" },
-  "home": { "hero": { "title": "Restaurante Kamancha", "subtitle": "Cocina Armenia Auténtica en el Corazón de Ereván", "description": "TripAdvisor #3 en Ereván · Música en Vivo Cada Noche · Tumanyan 23", "cta": "Reservar Tu Mesa", "ctaMenu": "Explorar Menú" }, "popular": { "title": "Nuestros Platos Insignia", "subtitle": "Recetas amadas transmitidas de generación en generación" }, "music": { "title": "Música en Vivo Esta Noche", "subtitle": "Cada noche a partir de las 20:00", "countdown": "Comienza en", "days": "d", "hours": "h", "minutes": "min", "seconds": "seg", "liveNow": "¡En Vivo Ahora!" }, "about": { "title": "Nuestra Historia", "subtitle": "Nacido del amor por el patrimonio culinario armenio", "text": "Kamancha es más que un restaurante — es un viaje por la rica cultura, sabores y hospitalidad armenios." }, "gallery": { "title": "Momentos en Kamancha", "subtitle": "Un vistazo a nuestro mundo" }, "stats": { "founded": "Fund. 2018", "tripadvisor": "TripAdvisor #3", "instagram": "75K Seguidores", "tables": "120+ Asientos" } },
-  "menu": { "title": "Nuestro Menú", "subtitle": "Cocina armenia auténtica con un toque moderno", "search": "Buscar platos...", "allCategories": "Todos", "noResults": "No se encontraron platos", "popular": "Popular", "unavailable": "Actualmente no disponible", "currency": "AMD" },
-  "booking": { "title": "Reservar Mesa", "subtitle": "Esperamos darte la bienvenida", "name": "Nombre Completo", "namePlaceholder": "Areg Petrosyan", "phone": "Número de Teléfono", "phonePlaceholder": "+374 91 000000", "email": "Correo Electrónico", "emailPlaceholder": "tu@email.com", "date": "Fecha", "time": "Hora", "guests": "Número de Huéspedes", "hall": "Elegir Salón", "selectHall": "Seleccionar salón", "notes": "Solicitudes Especiales", "notesPlaceholder": "Alergia, cumpleaños, aniversario...", "submit": "Reservar Ahora", "checkAvailability": "Comprobar Disponibilidad", "available": "Este horario está disponible", "unavailable": "Este horario está ocupado", "success": { "title": "¡Reserva Confirmada!", "text": "Tu código de confirmación es:", "note": "Se ha enviado un correo de confirmación." }, "error": "Reserva fallida. Por favor, inténtalo de nuevo.", "halls": { "1": { "name": "Salón Principal", "desc": "80 asientos · Escenario de música en vivo" }, "2": { "name": "Terraza Jardín", "desc": "40 asientos · Al aire libre" }, "3": { "name": "Salón Privado", "desc": "20 asientos · Íntimo" } }, "timeSlots": ["12:00","13:00","14:00","15:00","18:00","19:00","20:00","21:00","22:00"] },
-  "about": { "title": "Sobre Kamancha", "subtitle": "Un hito de Ereván desde 2018", "story": { "title": "Nuestra Historia", "text1": "Kamancha abrió sus puertas en 2018 en el corazón de Ereván, en la Calle Tumanyan 23.", "text2": "Estamos orgullosos de ser #3 en TripAdvisor en Ereván." }, "founder": { "title": "Conoce al Fundador", "name": "Areg Manukyan", "role": "Fundador y Chef", "bio": "Areg, conocido como @restormania, es un apasionado artista culinario.", "instagram": "@restormania" }, "team": { "title": "Nuestro Equipo", "subtitle": "Las personas que hacen especial a Kamancha" }, "values": { "title": "Nuestros Valores", "authenticity": "Recetas Auténticas", "authenticityDesc": "Cada plato elaborado con recetas armenias tradicionales", "quality": "Calidad Premium", "qualityDesc": "Solo los mejores ingredientes locales", "hospitality": "Hospitalidad Cálida", "hospitalityDesc": "Cada huésped es familia en Kamancha", "culture": "Patrimonio Cultural", "cultureDesc": "Celebrando la música, el arte y la tradición armenios" }, "address": "Ereván, Calle Tumanyan 23", "phone": "+374 10 000000", "hours": "Lun–Dom: 12:00 – 24:00" },
-  "gallery": { "title": "Galería", "subtitle": "La vida en Kamancha", "filter": { "all": "Todos", "food": "Comida", "interior": "Interior", "events": "Eventos", "team": "Equipo" }, "noImages": "No hay imágenes en esta categoría aún" },
-  "events": { "title": "Eventos", "subtitle": "Música en vivo y noches especiales", "upcoming": "Próximos Eventos", "noEvents": "No hay eventos por el momento", "types": { "music": "Música en Vivo", "special": "Noche Especial", "holiday": "Festivo", "other": "Evento" }, "bookForEvent": "Reservar para este Evento" },
-  "reviews": { "title": "Reseñas de Huéspedes", "subtitle": "Lo que dicen nuestros huéspedes", "avgRating": "Calificación Promedio", "sources": { "all": "Todas las Fuentes", "tripadvisor": "TripAdvisor", "google": "Google", "internal": "Directo" }, "noReviews": "Aún no hay reseñas", "tripAdvisorRank": "TripAdvisor Ereván #3" },
-  "delivery": { "title": "Pedir Entrega", "subtitle": "Kamancha en tu puerta", "cart": "Tu Carrito", "cartEmpty": "Tu carrito está vacío", "addToCart": "Añadir al Carrito", "removeFromCart": "Eliminar", "quantity": "Cantidad", "total": "Total", "checkout": "Pagar", "orderSuccess": "¡Pedido realizado con éxito!", "orderError": "Pedido fallido.", "address": "Dirección de Entrega", "addressPlaceholder": "Introduce tu dirección", "deliveryFee": "Costo de Entrega", "free": "Gratis", "minOrder": "Pedido mínimo: 5.000 AMD", "form": { "name": "Nombre", "phone": "Teléfono", "address": "Dirección", "submit": "Realizar Pedido" } },
-  "admin": { "dashboard": "Panel de Control", "login": "Acceso Admin", "logout": "Cerrar Sesión", "reservations": "Reservas", "menu": "Menú", "gallery": "Galería", "events": "Eventos", "stats": { "total": "Total Reservas", "pending": "Pendientes", "menuItems": "Artículos Menú" }, "status": { "PENDING": "Pendiente", "CONFIRMED": "Confirmado", "CANCELLED": "Cancelado", "COMPLETED": "Completado" }, "actions": { "confirm": "Confirmar", "cancel": "Cancelar", "complete": "Completar", "delete": "Eliminar", "add": "Añadir", "edit": "Editar", "save": "Guardar" } },
-  "footer": { "address": "Ereván, Tumanyan 23", "phone": "+374 10 000000", "email": "info@kamancha.am", "hours": "Lun–Dom: 12:00 – 24:00", "social": "Síguenos", "rights": "Todos los derechos reservados", "links": { "privacy": "Privacidad", "terms": "Términos" } }
+  "nav": {
+    "home": "Inicio",
+    "menu": "Menú",
+    "booking": "Reserva",
+    "about": "Nosotros",
+    "gallery": "Galería",
+    "events": "Eventos",
+    "reviews": "Reseñas",
+    "delivery": "Entrega",
+    "admin": "Admin"
+  },
+  "common": {
+    "bookTable": "Reservar Mesa",
+    "viewMenu": "Ver Menú",
+    "learnMore": "Más información",
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "close": "Cerrar",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "search": "Buscar",
+    "filter": "Filtro",
+    "all": "Todos",
+    "amd": "AMD",
+    "perPerson": "por persona",
+    "guests": "huéspedes",
+    "available": "Disponible",
+    "unavailable": "No disponible",
+    "seeAll": "Ver todo"
+  },
+  "home": {
+    "hero": {
+      "title": "Restaurante Kamancha",
+      "subtitle": "Cocina Armenia Auténtica en el Corazón de Ereván",
+      "description": "TripAdvisor #3 en Ereván · Música en Vivo Cada Noche · Tumanyan 23",
+      "cta": "Reservar Tu Mesa",
+      "ctaMenu": "Explorar Menú"
+    },
+    "popular": {
+      "title": "Nuestros Platos Insignia",
+      "subtitle": "Recetas amadas transmitidas de generación en generación"
+    },
+    "music": {
+      "title": "Música en Vivo Esta Noche",
+      "subtitle": "Cada noche a partir de las 20:00",
+      "countdown": "Comienza en",
+      "days": "d",
+      "hours": "h",
+      "minutes": "min",
+      "seconds": "seg",
+      "liveNow": "¡En Vivo Ahora!"
+    },
+    "about": {
+      "title": "Nuestra Historia",
+      "subtitle": "Nacido del amor por el patrimonio culinario armenio",
+      "text": "Kamancha es más que un restaurante — es un viaje por la rica cultura, sabores y hospitalidad armenios."
+    },
+    "gallery": {
+      "title": "Momentos en Kamancha",
+      "subtitle": "Un vistazo a nuestro mundo"
+    },
+    "stats": {
+      "founded": "Fund. 2018",
+      "tripadvisor": "TripAdvisor #3",
+      "instagram": "75K Seguidores",
+      "tables": "120+ Asientos"
+    }
+  },
+  "menu": {
+    "title": "Nuestro Menú",
+    "subtitle": "Cocina armenia auténtica con un toque moderno",
+    "search": "Buscar platos...",
+    "allCategories": "Todos",
+    "noResults": "No se encontraron platos",
+    "popular": "Popular",
+    "unavailable": "Actualmente no disponible",
+    "currency": "AMD"
+  },
+  "booking": {
+    "title": "Reservar Mesa",
+    "subtitle": "Esperamos darte la bienvenida",
+    "name": "Nombre Completo",
+    "namePlaceholder": "Areg Petrosyan",
+    "phone": "Número de Teléfono",
+    "phonePlaceholder": "+374 91 000000",
+    "email": "Correo Electrónico",
+    "emailPlaceholder": "tu@email.com",
+    "date": "Fecha",
+    "time": "Hora",
+    "guests": "Número de Huéspedes",
+    "hall": "Elegir Salón",
+    "selectHall": "Seleccionar salón",
+    "notes": "Solicitudes Especiales",
+    "notesPlaceholder": "Alergia, cumpleaños, aniversario...",
+    "submit": "Reservar Ahora",
+    "checkAvailability": "Comprobar Disponibilidad",
+    "available": "Este horario está disponible",
+    "unavailable": "Este horario está ocupado",
+    "success": {
+      "title": "¡Reserva Confirmada!",
+      "text": "Tu código de confirmación es:",
+      "note": "Se ha enviado un correo de confirmación."
+    },
+    "error": "Reserva fallida. Por favor, inténtalo de nuevo.",
+    "halls": {
+      "1": {
+        "name": "Salón Principal",
+        "desc": "80 asientos · Escenario de música en vivo"
+      },
+      "2": {
+        "name": "Terraza Jardín",
+        "desc": "40 asientos · Al aire libre"
+      },
+      "3": {
+        "name": "Salón Privado",
+        "desc": "20 asientos · Íntimo"
+      }
+    },
+    "timeSlots": [
+      "12:00",
+      "13:00",
+      "14:00",
+      "15:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00"
+    ]
+  },
+  "about": {
+    "title": "Sobre Kamancha",
+    "subtitle": "Un hito de Ereván desde 2018",
+    "story": {
+      "title": "Nuestra Historia",
+      "text1": "Kamancha abrió sus puertas en 2018 en el corazón de Ereván, en la Calle Tumanyan 23.",
+      "text2": "Estamos orgullosos de ser #3 en TripAdvisor en Ereván."
+    },
+    "founder": {
+      "title": "Conoce al Fundador",
+      "name": "Areg Manukyan",
+      "role": "Fundador y Chef",
+      "bio": "Areg, conocido como @restormania, es un apasionado artista culinario.",
+      "instagram": "@restormania"
+    },
+    "team": {
+      "title": "Nuestro Equipo",
+      "subtitle": "Las personas que hacen especial a Kamancha"
+    },
+    "values": {
+      "title": "Nuestros Valores",
+      "authenticity": "Recetas Auténticas",
+      "authenticityDesc": "Cada plato elaborado con recetas armenias tradicionales",
+      "quality": "Calidad Premium",
+      "qualityDesc": "Solo los mejores ingredientes locales",
+      "hospitality": "Hospitalidad Cálida",
+      "hospitalityDesc": "Cada huésped es familia en Kamancha",
+      "culture": "Patrimonio Cultural",
+      "cultureDesc": "Celebrando la música, el arte y la tradición armenios"
+    },
+    "address": "Ereván, Calle Tumanyan 23",
+    "phone": "+374 10 000000",
+    "hours": "Lun–Dom: 12:00 – 24:00"
+  },
+  "gallery": {
+    "title": "Galería",
+    "subtitle": "La vida en Kamancha",
+    "filter": {
+      "all": "Todos",
+      "food": "Comida",
+      "interior": "Interior",
+      "events": "Eventos",
+      "team": "Equipo"
+    },
+    "noImages": "No hay imágenes en esta categoría aún"
+  },
+  "events": {
+    "title": "Eventos",
+    "subtitle": "Música en vivo y noches especiales",
+    "upcoming": "Próximos Eventos",
+    "noEvents": "No hay eventos por el momento",
+    "types": {
+      "music": "Música en Vivo",
+      "special": "Noche Especial",
+      "holiday": "Festivo",
+      "other": "Evento"
+    },
+    "bookForEvent": "Reservar para este Evento"
+  },
+  "reviews": {
+    "title": "Reseñas de Huéspedes",
+    "subtitle": "Lo que dicen nuestros huéspedes",
+    "avgRating": "Calificación Promedio",
+    "sources": {
+      "all": "Todas las Fuentes",
+      "tripadvisor": "TripAdvisor",
+      "google": "Google",
+      "internal": "Directo"
+    },
+    "noReviews": "Aún no hay reseñas",
+    "tripAdvisorRank": "TripAdvisor Ereván #3"
+  },
+  "delivery": {
+    "title": "Pedir Entrega",
+    "subtitle": "Kamancha en tu puerta",
+    "cart": "Tu Carrito",
+    "cartEmpty": "Tu carrito está vacío",
+    "addToCart": "Añadir al Carrito",
+    "removeFromCart": "Eliminar",
+    "quantity": "Cantidad",
+    "total": "Total",
+    "checkout": "Pagar",
+    "orderSuccess": "¡Pedido realizado con éxito!",
+    "orderError": "Pedido fallido.",
+    "address": "Dirección de Entrega",
+    "addressPlaceholder": "Introduce tu dirección",
+    "deliveryFee": "Costo de Entrega",
+    "free": "Gratis",
+    "minOrder": "Pedido mínimo: 5.000 AMD",
+    "form": {
+      "name": "Nombre",
+      "phone": "Teléfono",
+      "address": "Dirección",
+      "submit": "Realizar Pedido"
+    }
+  },
+  "admin": {
+    "dashboard": "Panel de Control",
+    "login": "Acceso Admin",
+    "logout": "Cerrar Sesión",
+    "reservations": "Reservas",
+    "menu": "Menú",
+    "gallery": "Galería",
+    "events": "Eventos",
+    "stats": {
+      "total": "Total Reservas",
+      "pending": "Pendientes",
+      "menuItems": "Artículos Menú"
+    },
+    "status": {
+      "PENDING": "Pendiente",
+      "CONFIRMED": "Confirmado",
+      "CANCELLED": "Cancelado",
+      "COMPLETED": "Completado"
+    },
+    "actions": {
+      "confirm": "Confirmar",
+      "cancel": "Cancelar",
+      "complete": "Completar",
+      "delete": "Eliminar",
+      "add": "Añadir",
+      "edit": "Editar",
+      "save": "Guardar"
+    }
+  },
+  "footer": {
+    "address": "Ereván, Tumanyan 23",
+    "phone": "+374 95 711700",
+    "email": "info@kamancha.am",
+    "hours": "Todos los días: 10:00 – 00:00",
+    "social": "Síguenos",
+    "rights": "Todos los derechos reservados",
+    "links": {
+      "privacy": "Privacidad",
+      "terms": "Términos"
+    }
+  }
 }

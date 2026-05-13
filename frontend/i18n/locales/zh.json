@@ -1,14 +1,269 @@
 {
-  "nav": { "home": "首页", "menu": "菜单", "booking": "预订", "about": "关于我们", "gallery": "图库", "events": "活动", "reviews": "评价", "delivery": "外卖", "admin": "管理" },
-  "common": { "bookTable": "预订桌位", "viewMenu": "查看菜单", "learnMore": "了解更多", "loading": "加载中...", "error": "出了点问题", "close": "关闭", "submit": "提交", "cancel": "取消", "search": "搜索", "filter": "筛选", "all": "全部", "amd": "AMD", "perPerson": "每人", "guests": "位客人", "available": "可用", "unavailable": "不可用", "seeAll": "查看全部" },
-  "home": { "hero": { "title": "卡曼查餐厅", "subtitle": "埃里温市中心的正宗亚美尼亚美食", "description": "TripAdvisor埃里温第3名 · 每晚现场音乐 · Tumanyan街23号", "cta": "预订您的桌位", "ctaMenu": "探索菜单" }, "popular": { "title": "我们的招牌菜", "subtitle": "世代相传的珍爱食谱" }, "music": { "title": "今晚现场音乐", "subtitle": "每晚20:00开始", "countdown": "倒计时", "days": "天", "hours": "时", "minutes": "分", "seconds": "秒", "liveNow": "正在直播!" }, "about": { "title": "我们的故事", "subtitle": "源于对亚美尼亚烹饪遗产的热爱", "text": "卡曼查不仅仅是一家餐厅，它是一段穿越亚美尼亚丰富文化、口味和好客传统的旅程。" }, "gallery": { "title": "卡曼查时刻", "subtitle": "我们世界的一瞥" }, "stats": { "founded": "创立于2018", "tripadvisor": "TripAdvisor #3", "instagram": "75K粉丝", "tables": "120+座位" } },
-  "menu": { "title": "我们的菜单", "subtitle": "正宗亚美尼亚美食融合现代元素", "search": "搜索菜品...", "allCategories": "全部", "noResults": "未找到菜品", "popular": "热门", "unavailable": "暂时不可用", "currency": "AMD" },
-  "booking": { "title": "预订桌位", "subtitle": "期待欢迎您的到来", "name": "全名", "namePlaceholder": "Areg Petrosyan", "phone": "电话号码", "phonePlaceholder": "+374 91 000000", "email": "电子邮件", "emailPlaceholder": "您的@邮箱.com", "date": "日期", "time": "时间", "guests": "客人数量", "hall": "选择大厅", "selectHall": "选择一个大厅", "notes": "特殊要求", "notesPlaceholder": "过敏、生日、周年纪念...", "submit": "立即预订", "checkAvailability": "查看可用性", "available": "此时段可用", "unavailable": "此时段已被占用", "success": { "title": "预订已确认！", "text": "您的确认码是：", "note": "确认邮件已发送到您的地址。" }, "error": "预订失败，请重试。", "halls": { "1": { "name": "主大厅", "desc": "80座 · 现场音乐舞台" }, "2": { "name": "花园露台", "desc": "40座 · 露天" }, "3": { "name": "私人包间", "desc": "20座 · 私密" } }, "timeSlots": ["12:00","13:00","14:00","15:00","18:00","19:00","20:00","21:00","22:00"] },
-  "about": { "title": "关于卡曼查", "subtitle": "自2018年以来的埃里温地标", "story": { "title": "我们的故事", "text1": "卡曼查餐厅于2018年在埃里温市中心Tumanyan街23号开业。", "text2": "我们为在埃里温TripAdvisor排名第3而自豪。" }, "founder": { "title": "认识创始人", "name": "Areg Manukyan", "role": "创始人兼主厨", "bio": "Areg，以@restormania著称，是一位充满激情的烹饪艺术家。", "instagram": "@restormania" }, "team": { "title": "我们的团队", "subtitle": "让卡曼查与众不同的人们" }, "values": { "title": "我们的价值观", "authenticity": "正宗食谱", "authenticityDesc": "每道菜都根据传统亚美尼亚食谱制作", "quality": "高级品质", "qualityDesc": "仅使用最优质的本地食材", "hospitality": "热情好客", "hospitalityDesc": "在卡曼查，每位客人都是家人", "culture": "文化遗产", "cultureDesc": "庆祝亚美尼亚音乐、艺术和传统" }, "address": "埃里温，Tumanyan街23号", "phone": "+374 10 000000", "hours": "周一至周日：12:00 – 24:00" },
-  "gallery": { "title": "图库", "subtitle": "卡曼查的生活", "filter": { "all": "全部", "food": "美食", "interior": "内饰", "events": "活动", "team": "团队" }, "noImages": "此类别暂无图片" },
-  "events": { "title": "活动", "subtitle": "现场音乐和特别之夜", "upcoming": "即将举行的活动", "noEvents": "目前暂无活动", "types": { "music": "现场音乐", "special": "特别之夜", "holiday": "节日", "other": "活动" }, "bookForEvent": "为此活动预订" },
-  "reviews": { "title": "客人评价", "subtitle": "我们的客人怎么说", "avgRating": "平均评分", "sources": { "all": "所有来源", "tripadvisor": "TripAdvisor", "google": "谷歌", "internal": "直接" }, "noReviews": "暂无评价", "tripAdvisorRank": "TripAdvisor埃里温#3" },
-  "delivery": { "title": "订外卖", "subtitle": "卡曼查送到您家门口", "cart": "您的购物车", "cartEmpty": "您的购物车是空的", "addToCart": "加入购物车", "removeFromCart": "移除", "quantity": "数量", "total": "总计", "checkout": "结账", "orderSuccess": "订单提交成功！", "orderError": "订单失败。", "address": "配送地址", "addressPlaceholder": "输入您的地址", "deliveryFee": "配送费", "free": "免费", "minOrder": "最低订单：5,000 AMD", "form": { "name": "姓名", "phone": "电话", "address": "地址", "submit": "下单" } },
-  "admin": { "dashboard": "控制面板", "login": "管理员登录", "logout": "退出", "reservations": "预订", "menu": "菜单", "gallery": "图库", "events": "活动", "stats": { "total": "总预订数", "pending": "待处理", "menuItems": "菜单项" }, "status": { "PENDING": "待处理", "CONFIRMED": "已确认", "CANCELLED": "已取消", "COMPLETED": "已完成" }, "actions": { "confirm": "确认", "cancel": "取消", "complete": "完成", "delete": "删除", "add": "添加", "edit": "编辑", "save": "保存" } },
-  "footer": { "address": "埃里温，Tumanyan 23", "phone": "+374 10 000000", "email": "info@kamancha.am", "hours": "周一至周日：12:00 – 24:00", "social": "关注我们", "rights": "版权所有", "links": { "privacy": "隐私政策", "terms": "条款" } }
+  "nav": {
+    "home": "首页",
+    "menu": "菜单",
+    "booking": "预订",
+    "about": "关于我们",
+    "gallery": "图库",
+    "events": "活动",
+    "reviews": "评价",
+    "delivery": "外卖",
+    "admin": "管理"
+  },
+  "common": {
+    "bookTable": "预订桌位",
+    "viewMenu": "查看菜单",
+    "learnMore": "了解更多",
+    "loading": "加载中...",
+    "error": "出了点问题",
+    "close": "关闭",
+    "submit": "提交",
+    "cancel": "取消",
+    "search": "搜索",
+    "filter": "筛选",
+    "all": "全部",
+    "amd": "AMD",
+    "perPerson": "每人",
+    "guests": "位客人",
+    "available": "可用",
+    "unavailable": "不可用",
+    "seeAll": "查看全部"
+  },
+  "home": {
+    "hero": {
+      "title": "卡曼查餐厅",
+      "subtitle": "埃里温市中心的正宗亚美尼亚美食",
+      "description": "TripAdvisor埃里温第3名 · 每晚现场音乐 · Tumanyan街23号",
+      "cta": "预订您的桌位",
+      "ctaMenu": "探索菜单"
+    },
+    "popular": {
+      "title": "我们的招牌菜",
+      "subtitle": "世代相传的珍爱食谱"
+    },
+    "music": {
+      "title": "今晚现场音乐",
+      "subtitle": "每晚20:00开始",
+      "countdown": "倒计时",
+      "days": "天",
+      "hours": "时",
+      "minutes": "分",
+      "seconds": "秒",
+      "liveNow": "正在直播!"
+    },
+    "about": {
+      "title": "我们的故事",
+      "subtitle": "源于对亚美尼亚烹饪遗产的热爱",
+      "text": "卡曼查不仅仅是一家餐厅，它是一段穿越亚美尼亚丰富文化、口味和好客传统的旅程。"
+    },
+    "gallery": {
+      "title": "卡曼查时刻",
+      "subtitle": "我们世界的一瞥"
+    },
+    "stats": {
+      "founded": "创立于2018",
+      "tripadvisor": "TripAdvisor #3",
+      "instagram": "75K粉丝",
+      "tables": "120+座位"
+    }
+  },
+  "menu": {
+    "title": "我们的菜单",
+    "subtitle": "正宗亚美尼亚美食融合现代元素",
+    "search": "搜索菜品...",
+    "allCategories": "全部",
+    "noResults": "未找到菜品",
+    "popular": "热门",
+    "unavailable": "暂时不可用",
+    "currency": "AMD"
+  },
+  "booking": {
+    "title": "预订桌位",
+    "subtitle": "期待欢迎您的到来",
+    "name": "全名",
+    "namePlaceholder": "Areg Petrosyan",
+    "phone": "电话号码",
+    "phonePlaceholder": "+374 91 000000",
+    "email": "电子邮件",
+    "emailPlaceholder": "您的@邮箱.com",
+    "date": "日期",
+    "time": "时间",
+    "guests": "客人数量",
+    "hall": "选择大厅",
+    "selectHall": "选择一个大厅",
+    "notes": "特殊要求",
+    "notesPlaceholder": "过敏、生日、周年纪念...",
+    "submit": "立即预订",
+    "checkAvailability": "查看可用性",
+    "available": "此时段可用",
+    "unavailable": "此时段已被占用",
+    "success": {
+      "title": "预订已确认！",
+      "text": "您的确认码是：",
+      "note": "确认邮件已发送到您的地址。"
+    },
+    "error": "预订失败，请重试。",
+    "halls": {
+      "1": {
+        "name": "主大厅",
+        "desc": "80座 · 现场音乐舞台"
+      },
+      "2": {
+        "name": "花园露台",
+        "desc": "40座 · 露天"
+      },
+      "3": {
+        "name": "私人包间",
+        "desc": "20座 · 私密"
+      }
+    },
+    "timeSlots": [
+      "12:00",
+      "13:00",
+      "14:00",
+      "15:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00"
+    ]
+  },
+  "about": {
+    "title": "关于卡曼查",
+    "subtitle": "自2018年以来的埃里温地标",
+    "story": {
+      "title": "我们的故事",
+      "text1": "卡曼查餐厅于2018年在埃里温市中心Tumanyan街23号开业。",
+      "text2": "我们为在埃里温TripAdvisor排名第3而自豪。"
+    },
+    "founder": {
+      "title": "认识创始人",
+      "name": "Areg Manukyan",
+      "role": "创始人兼主厨",
+      "bio": "Areg，以@restormania著称，是一位充满激情的烹饪艺术家。",
+      "instagram": "@restormania"
+    },
+    "team": {
+      "title": "我们的团队",
+      "subtitle": "让卡曼查与众不同的人们"
+    },
+    "values": {
+      "title": "我们的价值观",
+      "authenticity": "正宗食谱",
+      "authenticityDesc": "每道菜都根据传统亚美尼亚食谱制作",
+      "quality": "高级品质",
+      "qualityDesc": "仅使用最优质的本地食材",
+      "hospitality": "热情好客",
+      "hospitalityDesc": "在卡曼查，每位客人都是家人",
+      "culture": "文化遗产",
+      "cultureDesc": "庆祝亚美尼亚音乐、艺术和传统"
+    },
+    "address": "埃里温，Tumanyan街23号",
+    "phone": "+374 10 000000",
+    "hours": "周一至周日：12:00 – 24:00"
+  },
+  "gallery": {
+    "title": "图库",
+    "subtitle": "卡曼查的生活",
+    "filter": {
+      "all": "全部",
+      "food": "美食",
+      "interior": "内饰",
+      "events": "活动",
+      "team": "团队"
+    },
+    "noImages": "此类别暂无图片"
+  },
+  "events": {
+    "title": "活动",
+    "subtitle": "现场音乐和特别之夜",
+    "upcoming": "即将举行的活动",
+    "noEvents": "目前暂无活动",
+    "types": {
+      "music": "现场音乐",
+      "special": "特别之夜",
+      "holiday": "节日",
+      "other": "活动"
+    },
+    "bookForEvent": "为此活动预订"
+  },
+  "reviews": {
+    "title": "客人评价",
+    "subtitle": "我们的客人怎么说",
+    "avgRating": "平均评分",
+    "sources": {
+      "all": "所有来源",
+      "tripadvisor": "TripAdvisor",
+      "google": "谷歌",
+      "internal": "直接"
+    },
+    "noReviews": "暂无评价",
+    "tripAdvisorRank": "TripAdvisor埃里温#3"
+  },
+  "delivery": {
+    "title": "订外卖",
+    "subtitle": "卡曼查送到您家门口",
+    "cart": "您的购物车",
+    "cartEmpty": "您的购物车是空的",
+    "addToCart": "加入购物车",
+    "removeFromCart": "移除",
+    "quantity": "数量",
+    "total": "总计",
+    "checkout": "结账",
+    "orderSuccess": "订单提交成功！",
+    "orderError": "订单失败。",
+    "address": "配送地址",
+    "addressPlaceholder": "输入您的地址",
+    "deliveryFee": "配送费",
+    "free": "免费",
+    "minOrder": "最低订单：5,000 AMD",
+    "form": {
+      "name": "姓名",
+      "phone": "电话",
+      "address": "地址",
+      "submit": "下单"
+    }
+  },
+  "admin": {
+    "dashboard": "控制面板",
+    "login": "管理员登录",
+    "logout": "退出",
+    "reservations": "预订",
+    "menu": "菜单",
+    "gallery": "图库",
+    "events": "活动",
+    "stats": {
+      "total": "总预订数",
+      "pending": "待处理",
+      "menuItems": "菜单项"
+    },
+    "status": {
+      "PENDING": "待处理",
+      "CONFIRMED": "已确认",
+      "CANCELLED": "已取消",
+      "COMPLETED": "已完成"
+    },
+    "actions": {
+      "confirm": "确认",
+      "cancel": "取消",
+      "complete": "完成",
+      "delete": "删除",
+      "add": "添加",
+      "edit": "编辑",
+      "save": "保存"
+    }
+  },
+  "footer": {
+    "address": "埃里温，Tumanyan 23",
+    "phone": "+374 95 711700",
+    "email": "info@kamancha.am",
+    "hours": "每天: 10:00 – 00:00",
+    "social": "关注我们",
+    "rights": "版权所有",
+    "links": {
+      "privacy": "隐私政策",
+      "terms": "条款"
+    }
+  }
 }
