@@ -27,7 +27,9 @@
     "guests": "հյուր",
     "available": "Ազատ է",
     "unavailable": "Զբաղված",
-    "seeAll": "Տեսնել բոլոր"
+    "seeAll": "Տեսնել բոլոր",
+    "orderNow": "Պատվիրել",
+    "viewDetails": "Մանրամասներ"
   },
   "home": {
     "hero": {
@@ -75,7 +77,12 @@
     "noResults": "Ուտեստ չի գտնվել",
     "popular": "Հայտնի",
     "unavailable": "Ժամանակավոր անհասանելի",
-    "currency": "AMD"
+    "currency": "AMD",
+    "addToCart": "Ավելացնել զամբյուղում",
+    "addedToCart": "Ավելացված է զամբյուղում",
+    "loginToFavorite": "Մուտք գործեք ընտրյալների համար",
+    "addedToFavorites": "Ավելացված է ընտրյալներում",
+    "removedFromFavorites": "Հեռացված է ընտրյալներից"
   },
   "booking": {
     "title": "Ամրագրել Սեղան",
@@ -222,8 +229,15 @@
       "name": "Անուն",
       "phone": "Հեռախոս",
       "address": "Հասցե",
-      "submit": "Ուղղել Պատվեր"
-    }
+      "submit": "Ուղղել Պատվեր",
+      "notes": "Նշումներ"
+    },
+    "loginToOrder": "Մուտք գործեք պատվիրելու համար",
+    "orderTrack": "Կարող եք հետևել պատվերի կարգավիճակին",
+    "viewOrders": "Տեսնել պատվերները",
+    "orderMore": "Ավելի շատ",
+    "loginRequired": "Անհրաժեշտ է մուտք",
+    "error": "Սխալ"
   },
   "admin": {
     "dashboard": "Կառավարման Վահանակ",
@@ -265,5 +279,64 @@
       "privacy": "Գաղտնիության Քաղ.",
       "terms": "Պայ."
     }
+  },
+  "account": {
+    "title": "Իմ Հաշիվը",
+    "hello": "Բարև",
+    "myAccount": "Իմ հաշիվը",
+    "login": "Մուտք",
+    "logout": "Ելք",
+    "register": "Գրանցում",
+    "loginTitle": "Մուտք",
+    "loginSubtitle": "Մուտք գործեք ձեր հաշիվ",
+    "loginButton": "Մուտք գործել",
+    "loginSuccess": "Բարի գալուստ",
+    "loginError": "Մուտք գործելու սխալ",
+    "noAccount": "Չունե՞ք հաշիվ։",
+    "registerHere": "Գրանցվեք այստեղ",
+    "registerTitle": "Գրանցում",
+    "registerSubtitle": "Ստեղծեք ձեր հաշիվը",
+    "registerButton": "Գրանցվել",
+    "registerSuccess": "Հաշիվը ստեղծվեց",
+    "registerError": "Գրանցման սխալ",
+    "haveAccount": "Արդեն ունե՞ք հաշիվ։",
+    "loginHere": "Մուտք գործեք այստեղ",
+    "email": "Էլ․ հասցե",
+    "password": "Գաղտնաբառ",
+    "newPassword": "Նոր գաղտնաբառ",
+    "passwordHint": "Նվազագույնը 6 նիշ",
+    "name": "Անուն",
+    "phone": "Հեռախոս",
+    "optional": "ոչ պարտադիր",
+    "tabs": {
+      "profile": "Անձնական",
+      "reservations": "Ամրագրումներ",
+      "orders": "Պատվերներ",
+      "favorites": "Ընտրյալներ",
+      "cart": "Զամբյուղ"
+    },
+    "profileTitle": "Անձնական տվյալներ",
+    "saveProfile": "Պահպանել",
+    "profileSaved": "Տվյալները պահպանվեցին",
+    "reservationsTitle": "Իմ ամրագրումները",
+    "noReservations": "Դեռ չունեք ամրագրումներ",
+    "makeReservation": "Կատարել ամրագրում",
+    "cancel": "Չեղարկել",
+    "cancelled": "Չեղարկվեց",
+    "confirmCancel": "Համոզվա՞ծ եք, որ ուզում եք չեղարկել ամրագրումը։",
+    "code": "Կոդ",
+    "guests": "հյուր",
+    "ordersTitle": "Իմ պատվերները",
+    "noOrders": "Դեռ չունեք պատվերներ",
+    "browseMenu": "Դիտել մենյուն",
+    "favoritesTitle": "Իմ ընտրյալները",
+    "noFavorites": "Դեռ չունեք ընտրյալներ",
+    "addToCart": "Ավելացնել զամբյուղում",
+    "removeFavorite": "Հեռացնել ընտրյալներից",
+    "cartTitle": "Իմ զամբյուղը",
+    "emptyCart": "Զամբյուղը դատարկ է",
+    "total": "Ընդամենը",
+    "checkout": "Պատվիրել",
+    "error": "Սխալ տեղի ունեցավ"
   }
 }

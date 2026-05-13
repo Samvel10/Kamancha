@@ -31,6 +31,27 @@ const loginSchema = Joi.object({
   password: Joi.string().min(6).required(),
 });
 
+const registerSchema = Joi.object({
+  email: Joi.string().email().required(),
+  password: Joi.string().min(6).max(100).required(),
+  name: Joi.string().min(2).max(100).required(),
+  phone: Joi.string().pattern(/^\+?[\d\s\-()]{7,20}$/).optional().allow(''),
+});
+
+const orderSchema = Joi.object({
+  items: Joi.array().items(Joi.object({
+    id: Joi.string().required(),
+    name: Joi.string().required(),
+    price: Joi.number().required(),
+    quantity: Joi.number().integer().min(1).required(),
+    image_url: Joi.string().optional().allow(''),
+  })).min(1).required(),
+  address: Joi.string().min(5).max(300).required(),
+  phone: Joi.string().pattern(/^\+?[\d\s\-()]{7,20}$/).required(),
+  name: Joi.string().min(2).max(100).required(),
+  notes: Joi.string().max(500).optional().allow(''),
+});
+
 const menuItemSchema = Joi.object({
   name: Joi.object().required(),
   description: Joi.object().required(),
@@ -42,4 +63,4 @@ const menuItemSchema = Joi.object({
   sort_order: Joi.number().integer().default(0),
 });
 
-module.exports = { validate, reservationSchema, loginSchema, menuItemSchema };
+module.exports = { validate, reservationSchema, loginSchema, menuItemSchema, registerSchema, orderSchema };

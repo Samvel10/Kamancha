@@ -22,17 +22,17 @@ export default function HeroSection() {
             TripAdvisor Yerevan #3
           </p>
           <h1
-            className="font-display font-bold leading-tight mb-6"
-            style={{ fontSize: 'clamp(2.4rem, 5vw, 2.625rem)', color: '#F5ECD7' }}
+            className="font-display font-bold leading-tight mb-6 text-[1.75rem] sm:text-[2rem] md:text-[2.625rem]"
+            style={{ color: '#F5ECD7' }}
           >
             {t('title')}
           </h1>
-          <p className="text-text-muted-green text-lg md:text-xl font-light mb-4 max-w-2xl mx-auto">
+          <p className="text-text-muted-green text-base sm:text-lg md:text-xl font-light mb-4 max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
           <p className="text-text-muted-green-2 text-sm mb-10 max-w-xl mx-auto">{t('description')}</p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <Link href={`/${locale}/booking`} className="btn-gold">
               {t('cta')}
             </Link>

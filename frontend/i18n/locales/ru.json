@@ -27,7 +27,9 @@
     "guests": "гостей",
     "available": "Доступно",
     "unavailable": "Занято",
-    "seeAll": "Смотреть все"
+    "seeAll": "Смотреть все",
+    "orderNow": "Заказать",
+    "viewDetails": "Подробнее"
   },
   "home": {
     "hero": {
@@ -75,7 +77,12 @@
     "noResults": "Блюда не найдены",
     "popular": "Популярное",
     "unavailable": "Временно недоступно",
-    "currency": "AMD"
+    "currency": "AMD",
+    "addToCart": "В корзину",
+    "addedToCart": "Добавлено в корзину",
+    "loginToFavorite": "Войдите, чтобы добавить в избранное",
+    "addedToFavorites": "В избранном",
+    "removedFromFavorites": "Удалено из избранного"
   },
   "booking": {
     "title": "Забронировать стол",
@@ -222,8 +229,15 @@
       "name": "Имя",
       "phone": "Телефон",
       "address": "Адрес",
-      "submit": "Заказать"
-    }
+      "submit": "Заказать",
+      "notes": "Примечания"
+    },
+    "loginToOrder": "Войдите, чтобы оформить заказ",
+    "orderTrack": "Отслеживайте статус в личном кабинете",
+    "viewOrders": "Мои заказы",
+    "orderMore": "Заказать ещё",
+    "loginRequired": "Сначала войдите",
+    "error": "Ошибка"
   },
   "admin": {
     "dashboard": "Панель управления",
@@ -265,5 +279,64 @@
       "privacy": "Конфиденциальность",
       "terms": "Условия"
     }
+  },
+  "account": {
+    "title": "Мой аккаунт",
+    "hello": "Привет",
+    "myAccount": "Мой аккаунт",
+    "login": "Войти",
+    "logout": "Выйти",
+    "register": "Регистрация",
+    "loginTitle": "Вход",
+    "loginSubtitle": "Войдите в ваш аккаунт",
+    "loginButton": "Войти",
+    "loginSuccess": "С возвращением",
+    "loginError": "Ошибка входа",
+    "noAccount": "Нет аккаунта?",
+    "registerHere": "Зарегистрируйтесь здесь",
+    "registerTitle": "Регистрация",
+    "registerSubtitle": "Создайте свой аккаунт",
+    "registerButton": "Зарегистрироваться",
+    "registerSuccess": "Аккаунт создан",
+    "registerError": "Ошибка регистрации",
+    "haveAccount": "Уже есть аккаунт?",
+    "loginHere": "Войдите здесь",
+    "email": "Эл. почта",
+    "password": "Пароль",
+    "newPassword": "Новый пароль",
+    "passwordHint": "Минимум 6 символов",
+    "name": "Имя",
+    "phone": "Телефон",
+    "optional": "необязательно",
+    "tabs": {
+      "profile": "Профиль",
+      "reservations": "Брони",
+      "orders": "Заказы",
+      "favorites": "Избранное",
+      "cart": "Корзина"
+    },
+    "profileTitle": "Личные данные",
+    "saveProfile": "Сохранить",
+    "profileSaved": "Профиль обновлён",
+    "reservationsTitle": "Мои брони",
+    "noReservations": "У вас пока нет броней",
+    "makeReservation": "Забронировать",
+    "cancel": "Отменить",
+    "cancelled": "Отменено",
+    "confirmCancel": "Вы уверены, что хотите отменить бронь?",
+    "code": "Код",
+    "guests": "гостей",
+    "ordersTitle": "Мои заказы",
+    "noOrders": "У вас пока нет заказов",
+    "browseMenu": "Открыть меню",
+    "favoritesTitle": "Избранное",
+    "noFavorites": "Пока нет избранных блюд",
+    "addToCart": "В корзину",
+    "removeFavorite": "Удалить из избранного",
+    "cartTitle": "Моя корзина",
+    "emptyCart": "Корзина пуста",
+    "total": "Итого",
+    "checkout": "Оформить заказ",
+    "error": "Что-то пошло не так"
   }
 }

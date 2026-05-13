@@ -16,7 +16,7 @@ export default function StatsSection() {
   return (
     <section className="bg-primary-deeper py-10 border-t border-b border-green-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-green-border">
+        <div className="grid grid-cols-2 md:grid-cols-4 md:divide-x divide-green-border gap-y-6 md:gap-y-0">
           {stats.map(({ value, label }, i) => (
             <motion.div
               key={i}

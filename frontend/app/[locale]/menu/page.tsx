@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { Search, Utensils } from 'lucide-react';
 import { getMenu, getCategories } from '@/lib/api';
 import { formatPrice, cn } from '@/lib/utils';
+import MenuItemModal from '@/components/menu/MenuItemModal';
 
 interface MenuItem {
   id: string;
@@ -27,6 +28,7 @@ export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState('');
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
+  const [openItemId, setOpenItemId] = useState<string | null>(null);
 
   const loadData = useCallback(async () => {
     setLoading(true);
@@ -53,7 +55,7 @@ export default function MenuPage() {
   return (
     <div className="pt-16 min-h-screen bg-bg">
       <div className="bg-primary py-16 text-center">
-        <h1 className="font-display text-4xl md:text-5xl font-bold mb-3" style={{ color: '#F5ECD7' }}>
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-3" style={{ color: '#F5ECD7' }}>
           {t('title')}
         </h1>
         <hr className="section-divider" />
@@ -127,10 +129,12 @@ export default function MenuPage() {
               className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto"
             >
               {filtered.map((item) => (
-                <div
+                <button
                   key={item.id}
+                  type="button"
+                  onClick={() => setOpenItemId(item.id)}
                   className={cn(
-                    'bg-white rounded-lg border border-border overflow-hidden hover:shadow-md transition-shadow flex',
+                    'bg-white rounded-lg border border-border overflow-hidden hover:shadow-md transition-shadow flex text-left w-full focus:outline-none focus:ring-2 focus:ring-accent/40',
                     !item.is_available && 'opacity-60'
                   )}
                 >
@@ -171,12 +175,14 @@ export default function MenuPage() {
                       <p className="mt-2 text-xs text-red-600">{t('unavailable')}</p>
                     )}
                   </div>
-                </div>
+                </button>
               ))}
             </motion.div>
           </AnimatePresence>
         )}
       </div>
+
+      <MenuItemModal itemId={openItemId} onClose={() => setOpenItemId(null)} />
     </div>
   );
 }

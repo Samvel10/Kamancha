@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Globe, ChevronDown } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, User as UserIcon, ShoppingCart, LogOut, LayoutDashboard } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useAuth } from '@/lib/auth';
+import { useCart } from '@/lib/cart';
 
 const LOCALES = [
   { code: 'hy', label: 'ՀԱՅ' }, { code: 'en', label: 'EN' }, { code: 'ru', label: 'RU' },
@@ -14,9 +16,13 @@ const LOCALES = [
 
 export default function Navbar({ locale }: { locale: string }) {
   const t = useTranslations('nav');
+  const tAccount = useTranslations('account');
   const pathname = usePathname();
+  const { user, logout } = useAuth();
+  const { count } = useCart();
   const [open, setOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [userOpen, setUserOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -64,13 +70,13 @@ export default function Navbar({ locale }: { locale: string }) {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-1">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'px-3 py-2 rounded text-sm font-medium transition-colors duration-200',
+                  'px-2 lg:px-3 py-2 rounded text-xs lg:text-sm font-medium transition-colors duration-200 whitespace-nowrap',
                   isActive(link.href)
                     ? 'text-accent'
                     : 'text-text-on-green hover:text-accent'
@@ -113,17 +119,83 @@ export default function Navbar({ locale }: { locale: string }) {
               )}
             </div>
 
+            {/* Cart icon */}
+            <Link
+              href={user ? `/${locale}/account` : `/${locale}/delivery`}
+              className="relative text-text-on-green hover:text-accent transition-colors p-1"
+              aria-label="Cart"
+            >
+              <ShoppingCart size={18} />
+              {count > 0 && (
+                <span className="absolute -top-1 -right-1 bg-accent text-primary text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-bold">
+                  {count}
+                </span>
+              )}
+            </Link>
+
+            {/* User menu */}
+            {user ? (
+              <div className="relative">
+                <button
+                  onClick={() => setUserOpen(!userOpen)}
+                  className="flex items-center gap-1 text-text-on-green hover:text-accent transition-colors px-2 py-1 rounded"
+                >
+                  <div className="w-7 h-7 rounded-full bg-accent text-primary flex items-center justify-center text-xs font-bold uppercase">
+                    {user.name.charAt(0)}
+                  </div>
+                  <ChevronDown size={12} className={cn('transition-transform hidden sm:block', userOpen && 'rotate-180')} />
+                </button>
+                {userOpen && (
+                  <div className="absolute right-0 mt-2 w-52 bg-white rounded-md shadow-2xl z-50 py-1 border border-border">
+                    <div className="px-4 py-3 border-b border-border">
+                      <p className="text-sm font-semibold text-primary truncate">{user.name}</p>
+                      <p className="text-xs text-text-faint truncate">{user.email}</p>
+                    </div>
+                    <Link
+                      href={`/${locale}/account`}
+                      onClick={() => setUserOpen(false)}
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-text-dark hover:bg-bg transition-colors"
+                    >
+                      <LayoutDashboard size={14} /> {tAccount('myAccount')}
+                    </Link>
+                    {user.role === 'ADMIN' && (
+                      <Link
+                        href={`/${locale}/admin`}
+                        onClick={() => setUserOpen(false)}
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-text-dark hover:bg-bg transition-colors"
+                      >
+                        <UserIcon size={14} /> Admin
+                      </Link>
+                    )}
+                    <button
+                      onClick={() => { logout(); setUserOpen(false); }}
+                      className="w-full text-left flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                    >
+                      <LogOut size={14} /> {tAccount('logout')}
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                href={`/${locale}/login`}
+                className="hidden sm:inline-flex items-center gap-1 text-text-on-green hover:text-accent transition-colors text-sm font-medium px-2"
+              >
+                <UserIcon size={14} /> {tAccount('login')}
+              </Link>
+            )}
+
             {/* Book button */}
             <Link
               href={`/${locale}/booking`}
-              className="hidden md:inline-flex items-center px-5 py-2 rounded-md bg-accent text-primary text-sm font-semibold hover:bg-accent-dark transition-colors"
+              className="hidden lg:inline-flex items-center px-5 py-2 rounded-md bg-accent text-primary text-sm font-semibold hover:bg-accent-dark transition-colors"
             >
               {t('booking')}
             </Link>
 
             {/* Mobile menu toggle */}
             <button
-              className="lg:hidden text-text-on-green hover:text-accent transition-colors p-1"
+              className="md:hidden text-text-on-green hover:text-accent transition-colors p-1"
               onClick={() => setOpen(!open)}
               aria-label="Toggle menu"
             >
@@ -135,7 +207,7 @@ export default function Navbar({ locale }: { locale: string }) {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-primary-deeper border-t border-green-border">
+        <div className="md:hidden bg-primary-deeper border-t border-green-border">
           <div className="px-4 py-2 space-y-0.5">
             {links.map((link) => (
               <Link
@@ -150,7 +222,24 @@ export default function Navbar({ locale }: { locale: string }) {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2 pb-1">
+            <div className="pt-2 pb-1 space-y-2">
+              {user ? (
+                <Link
+                  href={`/${locale}/account`}
+                  onClick={() => setOpen(false)}
+                  className="block text-center py-3 rounded-md border border-accent text-accent text-sm font-semibold hover:bg-accent hover:text-primary transition-colors"
+                >
+                  {tAccount('myAccount')}
+                </Link>
+              ) : (
+                <Link
+                  href={`/${locale}/login`}
+                  onClick={() => setOpen(false)}
+                  className="block text-center py-3 rounded-md border border-accent text-accent text-sm font-semibold hover:bg-accent hover:text-primary transition-colors"
+                >
+                  {tAccount('login')}
+                </Link>
+              )}
               <Link
                 href={`/${locale}/booking`}
                 onClick={() => setOpen(false)}

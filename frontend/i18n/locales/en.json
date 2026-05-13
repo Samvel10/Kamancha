@@ -27,7 +27,9 @@
     "guests": "guests",
     "available": "Available",
     "unavailable": "Unavailable",
-    "seeAll": "See All"
+    "seeAll": "See All",
+    "orderNow": "Order Now",
+    "viewDetails": "View Details"
   },
   "home": {
     "hero": {
@@ -75,7 +77,12 @@
     "noResults": "No dishes found",
     "popular": "Popular",
     "unavailable": "Currently unavailable",
-    "currency": "AMD"
+    "currency": "AMD",
+    "addToCart": "Add to cart",
+    "addedToCart": "Added to cart",
+    "loginToFavorite": "Login to save favorites",
+    "addedToFavorites": "Added to favorites",
+    "removedFromFavorites": "Removed from favorites"
   },
   "booking": {
     "title": "Reserve a Table",
@@ -222,8 +229,15 @@
       "name": "Name",
       "phone": "Phone",
       "address": "Address",
-      "submit": "Place Order"
-    }
+      "submit": "Place Order",
+      "notes": "Notes"
+    },
+    "loginToOrder": "Login to place an order",
+    "orderTrack": "Track order status in your account",
+    "viewOrders": "View orders",
+    "orderMore": "Order more",
+    "loginRequired": "Please login first",
+    "error": "Something went wrong"
   },
   "admin": {
     "dashboard": "Dashboard",
@@ -265,5 +279,64 @@
       "privacy": "Privacy Policy",
       "terms": "Terms"
     }
+  },
+  "account": {
+    "title": "My Account",
+    "hello": "Hello",
+    "myAccount": "My Account",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "loginTitle": "Login",
+    "loginSubtitle": "Access your account",
+    "loginButton": "Sign In",
+    "loginSuccess": "Welcome back",
+    "loginError": "Login failed",
+    "noAccount": "Don't have an account?",
+    "registerHere": "Register here",
+    "registerTitle": "Create Account",
+    "registerSubtitle": "Join us today",
+    "registerButton": "Sign Up",
+    "registerSuccess": "Account created",
+    "registerError": "Registration failed",
+    "haveAccount": "Already have an account?",
+    "loginHere": "Login here",
+    "email": "Email",
+    "password": "Password",
+    "newPassword": "New password",
+    "passwordHint": "At least 6 characters",
+    "name": "Name",
+    "phone": "Phone",
+    "optional": "optional",
+    "tabs": {
+      "profile": "Profile",
+      "reservations": "Reservations",
+      "orders": "Orders",
+      "favorites": "Favorites",
+      "cart": "Cart"
+    },
+    "profileTitle": "Personal Information",
+    "saveProfile": "Save changes",
+    "profileSaved": "Profile updated",
+    "reservationsTitle": "My Reservations",
+    "noReservations": "You haven't made any reservations yet",
+    "makeReservation": "Make a reservation",
+    "cancel": "Cancel",
+    "cancelled": "Cancelled",
+    "confirmCancel": "Are you sure you want to cancel this reservation?",
+    "code": "Code",
+    "guests": "guests",
+    "ordersTitle": "My Orders",
+    "noOrders": "You haven't placed any orders yet",
+    "browseMenu": "Browse menu",
+    "favoritesTitle": "My Favorites",
+    "noFavorites": "No favorites yet",
+    "addToCart": "Add to cart",
+    "removeFavorite": "Remove from favorites",
+    "cartTitle": "My Cart",
+    "emptyCart": "Your cart is empty",
+    "total": "Total",
+    "checkout": "Checkout",
+    "error": "Something went wrong"
   }
 }
